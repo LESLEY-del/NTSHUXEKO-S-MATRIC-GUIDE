@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Trish Mini App</title>
+
+<style>
+
+*{
+box-sizing:border-box;
+margin:0;
+padding:0;
+}
+
+body{
+font-family:Arial, sans-serif;
+
+background: linear-gradient(-45deg,#ee7752,#e73c7e,#23a6d5,#23d5ab);
+background-size:400% 400%;
+animation:shift 12s ease infinite;
+
+display:flex;
+justify-content:center;
+padding:20px;
+}
+
+/* background animation */
+@keyframes shift{
+0%{background-position:0% 50%;}
+50%{background-position:100% 50%;}
+100%{background-position:0% 50%;}
+}
+
+/* main container */
+.container{
+width:100%;
+max-width:600px;
+text-align:center;
+}
+
+/* profile */
+#owner{
+width:110px;
+height:110px;
+margin:auto;
+border-radius:50%;
+border:double black;
+overflow:hidden;
+}
+
+#pic{
+width:100%;
+height:100%;
+object-fit:cover;
+}
+
+/* text */
+p{
+margin:20px 0;
+color:#240b36;
+line-height:1.6;
+font-size:15px;
+}
+
+/* lists */
+ol,ul{
+text-align:left;
+margin:20px 0;
+color:#240b36;
+padding-left:20px;
+}
+
+/* buttons */
+button{
+margin-top:15px;
+width:100%;
+height:50px;
+border:none;
+border-radius:40px;
+background:black;
+color:white;
+font-size:16px;
+cursor:pointer;
+}
+
+button:hover{
+background:#333;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<div id="owner">
+<img src="trish2.jpg" alt="App designer" id="pic">
+</div>
+
+<h1 style="color:#240b36;">WELCOME TO MY MINI APP</h1>
+
+<p>
+Hello I'm Lesley ntshuxeko malangana but people call me <b>"TRISH MAN"</b>.
+I designed this app to assist matric students in our country
+and even those outside the country. Your happiness is also my happiness. Sorry to history learners , accounting and others excluded im still gathering data but i promise to provide you with the latest updates. Stay tune for the new version of the app. I will also provide a link to download the app for free. I hope you enjoy using it and please share it with your friends.
+</p><br><br>
+
+<ul>
+<li>DATA IS NEEDED FOR THE APP</li>
+</ul><br>
+
+<ol>
+<li>FIRST GO THROUGH THE STUDY TIPS</li><br><br>
+<li>AFTER YOU CAN CHECK THE QUESTION PAPERS</li><br><br>
+<li>IF NOT SURE YOU CAN WATCH VIDEO</li><br><br>
+</ol>
+<br>
+<br>
+<br>
+
+<button onclick="window.location.href='tips.html'">STUDY TIPS</button>
+<br>
+<br>
+<br>
+
+<button onclick="window.location.href='subjects.html'">QUESTION PAPERS</button>
+
+<br>
+<br>
+<br>
+
+<button onclick="window.location.href='sources.html'">VIDEOS</button>
+<br>
+<br>
+<br>
+<br>
+<br>
+<footer> <img src="call.png" alt="call logo" height="30px" width="30px">info:063-163-6039      .
+       <img src="email.webp" alt="email logo" height="30px" width="30px"> email:ntshuxekomalangana@gmail.com      .  <img src="Facebook_logo_(square).png" alt="facebook logo" height="30px" width="30px">FACEBOOK: MAN TRISH </footer>    </footer>
+
+
+</div>
+
+
+</body>
+</html>

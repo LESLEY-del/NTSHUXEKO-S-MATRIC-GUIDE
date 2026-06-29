@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QP</title>
+    <style>
+        body{
+             background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab); 
+             background-size:400% 400%;
+              animation: shift 12s ease infinite; 
+ 
+        }
+        #text{
+            border: none;
+            border-radius:30px;
+            height: 30px;
+        
+        }
+        #SEARCH{
+            background:  radial-gradient(circle at top left, #e0eafc, #cfdef3); background-size: 200% 200%;
+ animation: mist 10s ease-in-out infinite; 
+ border-radius: 50px;
+ height: 200px;
+        }
+        #btn{
+            background-color: #23a6d5;
+            text-shadow: #e73c7e;
+            border: double;
+            border-radius: 30%;
+            cursor: pointer;
+            width: 150px;
+        }
+        .paper {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-left: 5px solid #23a6d5;
+  border-radius: 10px;
+  padding: 15px 20px;
+  margin: 12px auto;
+  width: 70%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.paper:hover {
+  background-color: rgba(255, 255, 255, 0.25);
+  transform: translateY(-3px);
+  box-shadow: 0px 4px 10px rgba(0,0,0,0.2);
+}
+
+/* Paper text and PDF icon */
+.paper-text {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.paper-text img {
+  width: 24px;
+  height: 24px;
+}
+
+/* Memo button style */
+.memo {
+  background-color: #23d5ab;
+  color: white;
+  padding: 8px 14px;
+  border-radius: 20px;
+  font-weight: bold;
+  font-size: 14px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+.memo:hover {
+  background-color: #e73c7e;
+}
+#bb{
+            border: none;
+            border-radius: 80px;
+            height: fit-content;
+            background-color:blue;
+            text-decoration-color: #111827;
+            cursor: pointer;
+            color: whitesmoke;
+}
+    </style>
+</head>
+<body>
+  <button id="bb" type="button" onclick="window.location.href='2ndpage.html'"><= back</button>
+    <center><div id="SEARCH" > <br><label FOR="text">SEARCH SUBJECTS</label>
+    <br>
+    <br>
+    <br>
+    <br>
+    
+    <input type="text" id="text" placeholder="search here" required style="background-color: lightblue;">
+    <br>
+    <br>
+    <br>
+    <button type="button" id="btn">SEARCH</button>
+    
+    </div></center>
+    <br>
+    <big><b><p style="color: rgb(29, 31, 34);">NB SEARCH FULL NAME TO APEAR
+
+      e.g mathematics, physical science, life sciences, accounting, economics, geography, history, life orientation, english, isiZulu, mathematical literacy
+    </p></b></big>
+<div id="results"></div>
+
+<script>
+const papers = {
+  "mathematics": [
+    {name:"Mathematics P1 NOVEMBER 2024", link:"qp/M P1 N 24.pdf", memo:"qp/M P1 N M 24.pdf"},
+    {name:"Mathematics P2 NOVEMBER 2024", link:"qp/M P2 N 24.pdf", memo:"qp/M P2 M N 23.pdf"},
+    {name:"Mathematics P1 NOVEMBER 2023", link:"qp/M P1 N 23.pdf", memo:"qp/M P1 N M 24.pdf"},
+    {name:"Mathematics P2 NOVEMBER 2023", link:"qp/M P2 N 23.pdf", memo:"qp/M P2 M N 23.pdf"},
+    {name:"Mathematics P1 MAY/JUNE 2023", link:"qp/M P1 M 23.pdf", memo:"qp/M P1 M M 23.pdf"},
+    {name:"Mathematics P2 MAY/JUNE 2023", link:"qp/M P2 M 23.pdf", memo:"qp/M P2 M M 23.pdf"},
+    {name:"Mathematics P1 NOVEMBER 2022", link:"qp/M P1 N 22.pdf", memo:"qp/M P1 M N 22.pdf"},
+    {name:"Mathematics P2 NOVEMBER 2022", link:"qp/M P2 N 22.pdf", memo:"qp/M P2 M N 22.pdf"},
+    {name:"Mathematics P1 MAY/JUNE 2022", link:"qp/M P1 M 22.pdf", memo:"qp/M P1 M M 22.pdf"},
+    {name:"Mathematics P2 MAY/JUNE 2022", link:"qp/M P2 M 22.pdf", memo:"qp/M P2 M M 22.pdf"},
+    {name:"Mathematics p1 NOVEMBER 2021", link:"qp/M P1 N 21.pdf", memo:"qp/M P1 M N 21.pdf"},
+    {name:"Mathematics P2 NOVEMBER 2021", link:"qp/M P2 N 21.pdf", memo:"qp/M P2 M N 21.pdf"},
+    {name:"Mathematics P1 MAY/JUNE ２０２１", link:"qp/M P1 M ２１.pdf", memo:"qp/M P1 M M ２１.pdf"},
+    {name:"Mathematics p２ MAY/JUNE ２０２１", link:"qp/M P２ M ２１.pdf", memo:"qp/M P２ M M ２１.pdf"},
+    {name:"Mathematics P1 NOVEMBER ２０２０", link:"qp/M P１ N ２０.pdf", memo:"qp/M P１ N M ２０.pdf"},
+    {name:"Mathematics P２ MAY/JUNE ２０２０", link:"qp/M P２ N ２０.pdf", memo:" qp/M P２ N M ２０.pdf"},
+    {name:"Mathematics P1 NOVEMBER 2019", link:"qp/M P1 N 19.pdf", memo:"qp/M P1 M N 19.pdf"},
+    {name:"Mathematics P2 NOVEMBER 2019", link:"qp/M P2 N 19.pdf", memo:"qp/M P2 M N 19.pdf"},
+    {name:"Mathematics P1 MAY/JUNE 2019", link:"qp/M P1 M 19.pdf", memo:"qp/M P1 M M 19.pdf"},
+    {name:"Mathematics P2 MAY/JUNE 2019", link:"qp/M P2 M 19.pdf", memo:"qp/M P2 M M 19.pdf"},
+    {name:"Mathematics P1 NOVEMBER 2018", link:"qp/M P1 N 18.pdf", memo:"qp/M P1 N M 18.pdf"},
+    {name:"Mathematics P2 NOVEMBER 2018", link:"qp/M P2 N 18.pdf", memo:" NONE"},
+    {name:"Mathematics P1 MAY/JUNE 2018", link:"qp/M P1 M 18.pdf", memo:"qp/M P1 M M 18.pdf"},
+    {name:"Mathematics P2 MAY/JUNE 2018", link:"qp/M P2 M 18.pdf", memo:"qp/M P2 M M 18.pdf"},
+    {name:"Mathematics P1 NOVEMBER 2017", link:"qp/M P1 N 17.pdf", memo:"qp/M P1 M N 17.pdf"},
+    {name:"Mathematics P1 NOVEMBER 20１６", link:"qp/M P１ N １６.pdf", memo:"qp/M P１ M N １６.pdf"},
+    {name:"Mathematics P2 NOVEMBER 2016", link:"qp/M P2 N 16.pdf", memo:"qp/M P2 N M 16.pdf"},
+    {name:"Mathematics P2 NOVEMBER 2015", link:"qp/M P2 N 15.pdf", memo:"qp/M P2 M N 15.pdf"},
+    {name:"Mathematics P1 NOVEMBER 2014", link:"qp/M P1 N 14.pdf", memo:"qp/M P1 M N 14.pdf"},
+    {name:"Mathematics P2 NOVEMBER 2014", link:"qp/M P2 N 14.pdf", memo:"qp/M P2 M N 14.pdf"},
+    {name:"Mathematics P1 NOVEMBER 2013", link:"qp/M P1 N 13.pdf", memo:"qp/M P1 M N 13.pdf"},
+    {name:"Mathematics P2 NOVEMBER 2013", link:"qp/M P2 N 13.pdf", memo:"qp/M P2 M N 13.pdf"},
+    {name:"Mathematics P1 NOVEMBER 2012", link:"NSC 2012 Mathematics P1 Nov 2012 Eng.pdf", memo:"NSC 2012 Mathematics P1 Nov 2012 Memo Eng.pdf"},
+    {name:"Mathematics P2 NOVEMBER 2012", link:"NSC 2012 Mathematics P2 Nov 2012 Eng.pdf", memo:"NSC 2012 Mathematics P2 Nov 2012 Memo Eng.pdf"},
+    {name:"Mathematics P２ NOVEMBER ２０１２", link:"qp/M P２ N ２０１２.pdf", memo:"qp/M P２ M N ２０１２.pdf"},
+    {name:"Mathematics P１ MAY/JUNE ２０２４", link:"", memo:""},
+    {name:"Mathematics P2 MAY/JUNE 2020", link:"M P2 24.pdf", memo:"M P2 M 24.pdf"}
+  ],
+  "mathematical literacy": [
+    {name:"Mathematical Literacy P1 Nov 2024", link:"MLP1_Nov2024.pdf", memo:"qp/MLP1_Nov2024_MEMO.pdf"}
+  ],
+  "physical science": [
+    {name:"Physical Science P1 Nov 2024", link:"qp/Physical Sciences P1 Nov 2024 Eng-1.pdf", memo:"Physical Sciences P1 Nov 2024 MG Afr & Eng-1.pdf"},
+   {name:"Physical Science P2 Nov 2024", link:"qp/Physical Sciences P2 Nov 2024 Eng-1.pdf", memo:"Physical Sciences P2 Nov 2024 MG Afr & Eng-1.pdf"},
+   {name:"Physical Science P1 MAY/JUNE 2024", link:"qp/Physical Sciences P1 May-June 2024 Eng.pdf", memo:"Physical Sciences P1 May-June 2024 MG Afr & Eng.pdf"},
+   {name:"Physical Science P2 MAY/JUNE 2024", link:"qp/Physical Sciences P2 May-June 2024 Eng.pdf", memo:"Physical Sciences P2 May-June 2024 MG Afr & Eng.pdf"},
+   {name:"Physical Science P1 Nov 2023", link:"qp/Physical Sciences P1 Nov 2023 Eng.pdf", memo:"Physical Sciences P1 Nov 2023 MG Afr & Eng.pdf"},
+   {name:"Physical Science P2 Nov 2023", link:"qp/Physical Sciences P2 Nov 2023 Eng.pdf", memo:"Physical Sciences P2 Nov 2023 MG Afr & Eng.pdf"},
+   {name:"Physical Science P1 Nov 2022", link:"qp/Physical Sciences P1 Nov 2022 Eng.pdf", memo:""},
+   {name:"Physical Science P2 Nov 2022", link:"qp/Physical Sciences P2 Nov 2022 Eng.pdf", memo:"Physical Sciences P2 Nov 2022 MG Afr & Eng.pdf"},
+   {name:"Physical Science P1 MAY/JUNE 2022", link:"qp/Physical Sciences P1 May-June 2022 Eng.pdf", memo:"Physical Sciences P2 May-June 2022 Eng.pdf"},
+   {name:"Physical Science P2 MAY/JUNE 2022", link:"qp/Physical Sciences P2 May-June 2022 Eng.pdf", memo:"Physical Sciences P2 May-June 2022 MG Afr & Eng.pdf"},
+   {name:"Physical Science P1 Nov 2021", link:"qp/Physical Sciences P1 Nov 2021 Eng.pdf", memo:"Physical Sciences P1 Nov 2021 MG Afr & Eng.pdf"},
+   {name:"Physical Science P２ Nov ２０２１", link:"qp/Physical Sciences P２ Nov ２０２１ Eng.pdf", memo:"Physical Sciences P２ Nov ２０２１ MG Afr & Eng.pdf"},
+   {name:"Physical Science P1 MAY/JUNE ２０２１", link:"qp/Physical Sciences P1 May-June ２０２１ Eng.pdf", memo:"Physical Sciences P1 May-June ２０２１ MG Afr & Eng.pdf"},
+   {name:"Physical Science P２ MAY/JUNE ２０２１", link:"qp/Physical Sciences P２ May-June ２０２１ Eng.pdf", memo:"Physical Sciences P２ May-June ２０２１ MG Afr & Eng.pdf"},
+   {name:"Physical Science P1 Nov ２０２０", link:"qp/Physical Sciences P1 Nov ２０２０ Eng.pdf", memo:"Physical Sciences P1 Nov ２０２０ Eng & Afr Memo.pdf"},
+   {name:"Physical Science P２ Nov ２０２０", link:"qp/Physical Sciences P２ Nov ２０２０ Eng.pdf", memo:"Physical Sciences P２ Nov ２０２０ Eng & Afr Memo.pdf"},
+   {name:"Physical Science P1 Nov 2019", link:"qp/Physical Sciences P1 Nov 2019 Eng.pdf", memo:"Physical Sciences P1 Nov 2019 Memo Afr & Eng.pdf"},
+   {name:"Physical Science P2 Nov 2019", link:"qp/Physical Sciences P2 Nov 2019 Eng.pdf", memo:"Physical Sciences P2 Nov 2019 Memo Afr & Eng.pdf"},
+   {name:"Physical Science P1 MAY/JUNE 2019", link:"qp/Physical Sciences P1 May-June 2019 Eng.pdf", memo:"Physical Sciences P1 May-June 2019 Memo Afr & Eng.pdf"},
+   {name:"Physical Science P2 MAY/JUNE 2019", link:"qp/Physical Sciences P2 May-June 2019 Eng.pdf", memo:"Physical Sciences P2 May-June 2019 Memo Afr & Eng.pdf"},
+   {name:"Physical Science P1 Nov 2018", link:"qp/Physical Sciences P1 Nov 2018 Eng.pdf", memo:"Physical Sciences P1 Nov 2018 FINAL Memo Afr & Eng.pdf"},
+   {name:"Physical Science P2 Nov 2018", link:"qp/Physical Sciences P2 Nov 2018 Eng.pdf", memo:"Physical Sciences P2 Nov 2018 FINAL Memo Afr & Eng.pdf"},
+   {name:"Physical Science P1 MAY/JUNE 2018", link:"qp/Physical Sciences P1 May-June 2018 Eng.pdf", memo:"Physical Sciences P1 May-June 2018 Memo Afr & Eng.pdf"},
+   {name:"Physical Science P2 MAY/JUNE 2018", link:"qp/Physical Sciences P2 May-June 2018 Eng.pdf", memo:"Physical Sciences P2 May-June 2018 Memo Afr & Eng.pdf"},
+   {name:"Physical Science P1 Nov 2017", link:"qp/Physical Sciences P1 Nov 2017 Eng.pdf", memo:"Physical Sciences P１ Nov ２０１７ Memo Afr & Eng.pdf"},
+   {name:"_physical science p２ nov ２０１７", link:"qp/physical sciences p２ nov ２０１７ eng.pdf", memo:"physical sciences p２ nov ２０１７ memo afr & eng.pdf"},
+   {name:"Physical Science P1 MAY/JUNE 2017", link:"qp/Physical Sciences P1 May-June 2017 Eng.pdf", memo:"Physical Sciences P1 May-June 2017 Memo Afr & Eng.pdf"},
+   {name:"Physical Science P2 MAY/JUNE 2017", link:"qp/Physical Sciences P2 May-June 2017 Eng.pdf", memo:"Physical Sciences P2 May-June 2017 Memo Afr & Eng.pdf"},
+   {name:"Physical Science P1 FEB/MAR 2017", link:"qp/Physical Sciences P1 Feb-March 2017 Eng.pdf", memo:"Physical Sciences P1 Feb-March 2017 Memo Afr & Eng.pdf"},
+   {name:"Physical Science P2 FEB/MAR 2017", link:"qp/Physical Sciences P2 Feb-March 2017 Eng.pdf", memo:""},
+   {name:"Physical Science P1 Nov 2016", link:"qp/Physical Sciences P1 Nov 2016 Eng.pdf", memo:"Physical Sciences P1 Nov 2016 Memo Afr & Eng.pdf"},
+   {name:"Physical Science P2 Nov 2016", link:"qp/Physical Sciences P2 Nov 2016 Eng.pdf", memo:"Physical Sciences P2 Nov 2016 Memo Afr & Eng.pdf"},
+   {name:"Physical Science P1 FEB/MAR 2016", link:"qp/Physical Sciences P1 Feb-March 2016 Eng.pdf", memo:""},
+   {name:"Physical Science P1 Nov 2015", link:"qp/Physical Sciences P1 Nov 2015 Eng.pdf", memo:"Physical Sciences P1 Nov 2015 Memo Afr & Eng.pdf"},
+   {name:"Physical Science P1 FEB/MAR 2015", link:"qp/Physical Sciences P1 Feb-March 2015 Eng.pdf", memo:"Physical Sciences P１ Feb-March ２０１５ Memo Afr & Eng.pdf"},
+   {name:"Physical Science P２ FEB/MAR ２０１５", link:"qp/physical sciences p２ feb-march ２０１５ eng.pdf", memo:"physical sciences p２ feb-march ２０１５ memo afr & eng.pdf"},
+   {name:"Physical Science P1 Nov 2014", link:"qp/Physical Sciences P1 Nov 2014 Eng.pdf", memo:"Physical Sciences P1 Nov 2014 Memo Afr & Eng.pdf"},
+   {name:"Physical Science P2 Nov 2014", link:"qp/Physical Sciences P2 Nov 2014 Eng.pdf", memo:"Physical Sciences P2 Nov 2014 Memo Afr & Eng.pdf"},
+   {name:"Physical Science P1 FEB/MAR 2014", link:"qp/Physical Sciences P1 Feb-March 2014 Eng.pdf", memo:"Physical Sciences P1 Feb-March 2014 Memo Afr & Eng.pdf"},
+   {name:"Physical Science P2 FEB/MAR 2014", link:"", memo:""},
+   {name:"Physical Science P1 Nov 2013", link:"", memo:""},
+   {name:"Physical Science P2 Nov 2013", link:"qp/Physical Sciences P2 Nov 2013 Eng.pdf", memo:""},
+   {name:"Physical Science P1 FEB/MAR 2013", link:"qp/Physical Sciences P1 Feb-March 2013 Eng.pdf", memo:"Physical Sciences P1 Feb-March 2013 Memo Afr & Eng.pdf"},
+   {name:"Physical Science P2 FEB/MAR 2013", link:"qp/Physical Sciences P2 Feb-March 2013 Eng.pdf", memo:"Physical Sciences P2 Feb-March 2013 Memo Afr & Eng.pdf"},
+   {name:"Physical Science P1 Nov 2012", link:"qp/NSC 2012 Physical Sciences P1 Nov 2012 Eng.pdf", memo:""},
+   {name:"Physical Science P2 Nov 2012", link:"qp/NSC 2012 Physical Sciences P2 Nov 2012 Memo Afr & Eng.pdf", memo:""},
+   {name:"Physical Science P1 FEB/MAR 2012", link:"qp/Febmarch 2012 NSC Physical Sciences P1 Feb-March 2012 Eng.pdf", memo:"qp/Febmarch 2012 NSC Physical Sciences P1 Feb-March 2012 Memo Afr & Eng.pdf"},
+   {name:"Physical Science P1 NOV 2012", link:"qp/Physical Sciences P1 Nov 2011 Eng.pdf", memo:"qp/Physical Sciences P1 Nov 2011 Memo Afr & Eng.pdf"},
+   {name:"Physical Science P1 FEB/MAR 2011", link:"", memo:""},
+   {name:"Physical Science P2 Nov 2011", link:"", memo:""},
+   {name:"Physical Science P2 Nov 2011", link:"", memo:""},
+   {name:"Physical Science P2 Nov 2011", link:"", memo:""},
+   {name:"Physical Science P2 Nov 2024", link:"", memo:""}
+   
+   
+  ],
+  "life sciences": [
+    {name:"Life Sciences P1 Nov 2024", link:"qp/LifeSciencesP1_Nov2024.pdf", memo:"LifeSciencesP1_Nov2024_MEMO.pdf"}
+  ],
+  "accounting": [
+    {name:"qp/Accounting P1 Nov 2024", link:"qp/AccountingP1_Nov2024.pdf", memo:"qp/AccountingP1_Nov2024_MEMO.pdf"}
+  ],
+  "economics": [
+    {name:"qp/Economics P1 Nov 2024", link:"qp/EconomicsP1_Nov2024.pdf", memo:"qp/EconomicsP1_Nov2024_MEMO.pdf"}
+  ],
+  "geography": [
+    {name:"qp/Geography P1 Nov 2024", link:"qp/GeographyP1_Nov2024.pdf", memo:"qp/GeographyP1_Nov2024_MEMO.pdf"}
+  ],
+  "history": [
+    {name:"qp/History P1 Nov 2024", link:"qp/HistoryP1_Nov2024.pdf", memo:"qp/HistoryP1_Nov2024_MEMO.pdf"}
+  ],
+  "life orientation": [
+    {name:"qp/Life Orientation Task 2024", link:"qp/LO_Task2024.pdf", memo:"qp/LO_Task2024_MEMO.pdf"}
+  ],
+  "english": [
+    {name:"qp/English HL P1 Nov 2024", link:"qp/EnglishP1_Nov2024.pdf", memo:"qp/EnglishP1_Nov2024_MEMO.pdf"}
+  ],
+  "isiZulu": [
+    {name:"qp/IsiZulu HL P1 Nov 2024", link:"qp/IsiZuluP1_Nov2024.pdf", memo:"qp/IsiZuluP1_Nov2024_MEMO.pdf"}
+  ]
+};
+
+// Function to normalize input: lowercase and trim
+const normalize = str => str.trim().toLowerCase();
+
+const btn = document.getElementById("btn");
+const results = document.getElementById("results");
+
+btn.onclick = function() {
+  const input = normalize(document.getElementById("text").value);
+  results.innerHTML = ""; // Clear previous results
+  let found = false;
+
+  for (const key in papers) {
+    if (normalize(key) === input) {
+      found = true;
+
+      papers[key].forEach(paper => {
+        // Create main card div
+        const div = document.createElement("div");
+        div.className = "paper";
+
+        // Left section: icon + paper name
+        const left = document.createElement("div");
+        left.className = "paper-text";
+
+        const icon = document.createElement("img");
+        icon.src = "pdf-icon.png"; // Place your PDF icon in the folder
+        icon.alt = "PDF";
+
+        const title = document.createElement("span");
+        title.textContent = paper.name;
+
+        left.appendChild(icon);
+        left.appendChild(title);
+
+        // Memo button
+        const memoBtn = document.createElement("span");
+        memoBtn.className = "memo";
+        memoBtn.textContent = "View Memo";
+        memoBtn.onclick = e => {
+          e.stopPropagation(); // Prevent opening main paper
+          window.open(paper.memo, "_blank");
+        };
+
+        // Open paper on clicking the card
+        div.onclick = () => window.open(paper.link, "_blank");
+
+        // Append left section and memo button to card
+        div.appendChild(left);
+        div.appendChild(memoBtn);
+
+        results.appendChild(div);
+      });
+    }
+  }
+
+  if (!found) {
+    results.innerHTML = "<p>❌ No papers found for that subject.</p>";
+  }
+};
+</script>
+
+
+  </script>
+</html>
