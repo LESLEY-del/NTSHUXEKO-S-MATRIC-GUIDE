@@ -1,0 +1,15 @@
+name: Build Pake App
+on: [push]
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 22
+      - run: npx --yes pake-cli@latest https://lesley-del.github.io/NTSHUXEKO-S-MATRIC-GUIDE/ --name "TrishMatricGuide"
+      - uses: actions/upload-artifact@v3
+        with:
+          name: TrishMatricGuide-App
+          path: output/
