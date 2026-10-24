@@ -1,153 +1,1513 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#080d20">
 
-<title>Trish Mini App</title>
+<meta name="description" content="TRISH MATRIC GUIDE — study tips, matric question papers and educational videos. Created by Malangana Web Design.">
+
+<title>TRISH MATRIC GUIDE | Student Hub</title>
 
 <style>
-
-*{
-box-sizing:border-box;
-margin:0;
-padding:0;
+:root {
+    --bg: #080d20;
+    --panel: rgba(20, 29, 59, .76);
+    --purple: #8b5cf6;
+    --blue: #2563eb;
+    --cyan: #67e8f9;
+    --text: #f8fafc;
+    --muted: #b8c4dc;
+    --border: rgba(255,255,255,.13);
 }
 
-body{
-font-family:Arial, sans-serif;
-
-background: linear-gradient(-45deg,#ee7752,#e73c7e,#23a6d5,#23d5ab);
-background-size:400% 400%;
-animation:shift 12s ease infinite;
-
-display:flex;
-justify-content:center;
-padding:20px;
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
-/* background animation */
-@keyframes shift{
-0%{background-position:0% 50%;}
-50%{background-position:100% 50%;}
-100%{background-position:0% 50%;}
+html {
+    scroll-behavior: smooth;
 }
 
-/* main container */
-.container{
-width:100%;
-max-width:600px;
-text-align:center;
+body {
+    min-height: 100vh;
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--text);
+    background: var(--bg);
+    overflow-x: hidden;
 }
 
-/* profile */
-#owner{
-width:110px;
-height:110px;
-margin:auto;
-border-radius:50%;
-border:double black;
-overflow:hidden;
+button, a {
+    -webkit-tap-highlight-color: transparent;
 }
 
-#pic{
-width:100%;
-height:100%;
-object-fit:cover;
+button:focus-visible,
+a:focus-visible {
+    outline: 3px solid var(--cyan);
+    outline-offset: 4px;
 }
 
-/* text */
-p{
-margin:20px 0;
-color:#240b36;
-line-height:1.6;
-font-size:15px;
+.background {
+    position: fixed;
+    inset: 0;
+    z-index: -3;
+    background:
+        radial-gradient(circle at 15% 20%, rgba(124,58,237,.18), transparent 35%),
+        radial-gradient(circle at 85% 75%, rgba(6,182,212,.15), transparent 35%),
+        #080d20;
 }
 
-/* lists */
-ol,ul{
-text-align:left;
-margin:20px 0;
-color:#240b36;
-padding-left:20px;
+.glow {
+    position: fixed;
+    z-index: -2;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    filter: blur(100px);
+    opacity: .2;
+    pointer-events: none;
+    animation: floatGlow 10s ease-in-out infinite alternate;
 }
 
-/* buttons */
-button{
-margin-top:15px;
-width:100%;
-height:50px;
-border:none;
-border-radius:40px;
-background:black;
-color:white;
-font-size:16px;
-cursor:pointer;
+.glow-one {
+    background: #8b5cf6;
+    top: 10%;
+    left: -150px;
 }
 
-button:hover{
-background:#333;
+.glow-two {
+    background: #06b6d4;
+    bottom: 5%;
+    right: -150px;
+    animation-delay: 2s;
 }
 
+@keyframes floatGlow {
+    from { transform: translateY(-15px); }
+    to { transform: translateY(35px); }
+}
+
+/* NAVIGATION */
+
+header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    padding: 16px 5%;
+    background: rgba(8,13,32,.84);
+    border-bottom: 1px solid var(--border);
+    backdrop-filter: blur(18px);
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.brand-icon {
+    width: 45px;
+    height: 45px;
+    display: grid;
+    place-items: center;
+    border-radius: 14px;
+    background: linear-gradient(135deg, var(--purple), var(--blue));
+    font-size: 23px;
+    box-shadow: 0 5px 25px rgba(139,92,246,.28);
+}
+
+.brand h2 {
+    font-size: 15px;
+    letter-spacing: .5px;
+}
+
+.brand p {
+    margin-top: 4px;
+    color: var(--muted);
+    font-size: 11px;
+}
+
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.nav-button {
+    padding: 11px 15px;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    background: rgba(255,255,255,.05);
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    text-decoration: none;
+    cursor: pointer;
+    transition: .25s;
+}
+
+.nav-button:hover {
+    background: rgba(139,92,246,.2);
+    border-color: #a78bfa;
+}
+
+/* PAGE LAYOUT */
+
+.container {
+    width: 100%;
+    max-width: 1120px;
+    margin: auto;
+    padding: 35px 22px 60px;
+}
+
+/* WELCOME */
+
+.welcome {
+    position: relative;
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: 1.2fr .8fr;
+    align-items: center;
+    gap: 30px;
+    padding: 45px;
+    border: 1px solid var(--border);
+    border-radius: 28px;
+    background: linear-gradient(
+        130deg,
+        rgba(139,92,246,.15),
+        rgba(37,99,235,.08),
+        rgba(255,255,255,.025)
+    );
+    box-shadow: 0 25px 70px rgba(0,0,0,.17);
+}
+
+.welcome::after {
+    content: "";
+    position: absolute;
+    width: 250px;
+    height: 250px;
+    right: -120px;
+    top: -130px;
+    border-radius: 50%;
+    background: rgba(103,232,249,.12);
+    filter: blur(25px);
+    pointer-events: none;
+}
+
+.eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    margin-bottom: 20px;
+    padding: 9px 13px;
+    border: 1px solid rgba(167,139,250,.3);
+    border-radius: 30px;
+    background: rgba(139,92,246,.12);
+    color: #ddd6fe;
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #34d399;
+    box-shadow: 0 0 12px #34d399;
+}
+
+h1 {
+    font-size: clamp(35px, 5vw, 56px);
+    line-height: 1.12;
+    letter-spacing: -1.5px;
+    margin-bottom: 18px;
+}
+
+.gradient-text {
+    display: block;
+    color: #c4b5fd;
+    background: linear-gradient(90deg, #c4b5fd, #67e8f9);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.welcome-copy {
+    color: var(--muted);
+    font-size: 15px;
+    line-height: 1.9;
+    max-width: 570px;
+}
+
+.motivation {
+    margin-top: 22px;
+    padding-left: 15px;
+    border-left: 3px solid #a78bfa;
+    color: #e2e8f0;
+    font-size: 14px;
+    line-height: 1.8;
+    font-style: italic;
+}
+
+.welcome-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.image-ring {
+    width: 220px;
+    height: 220px;
+    padding: 6px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #a78bfa, #38bdf8, #7c3aed);
+    box-shadow: 0 0 50px rgba(139,92,246,.2);
+    animation: ringFloat 5s ease-in-out infinite;
+}
+
+.image-ring img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 4px solid #111827;
+}
+
+@keyframes ringFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-9px); }
+}
+
+/* SECTION HEADINGS */
+
+.section-heading {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 15px;
+    margin: 48px 0 22px;
+}
+
+.section-heading h2 {
+    font-size: 25px;
+    margin-bottom: 8px;
+}
+
+.section-heading p {
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+.section-tag {
+    color: #c4b5fd;
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+/* LEARNING CARDS */
+
+.learning-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.learning-card {
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    min-height: 265px;
+    padding: 25px;
+    border: 1px solid var(--border);
+    border-radius: 22px;
+    background: linear-gradient(
+        145deg,
+        rgba(255,255,255,.075),
+        rgba(255,255,255,.025)
+    );
+    transition: transform .3s, border-color .3s, box-shadow .3s;
+}
+
+.learning-card:hover {
+    transform: translateY(-6px);
+    border-color: rgba(167,139,250,.55);
+    box-shadow: 0 18px 40px rgba(0,0,0,.2);
+}
+
+.card-icon {
+    display: grid;
+    place-items: center;
+    width: 56px;
+    height: 56px;
+    border-radius: 17px;
+    font-size: 27px;
+    margin-bottom: 22px;
+    border: 1px solid rgba(255,255,255,.1);
+}
+
+.purple { background: rgba(139,92,246,.17); }
+.blue { background: rgba(59,130,246,.17); }
+.cyan { background: rgba(6,182,212,.17); }
+
+.learning-card h3 {
+    font-size: 19px;
+    margin-bottom: 11px;
+}
+
+.learning-card p {
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.8;
+    margin-bottom: 23px;
+}
+
+.card-link {
+    width: 100%;
+    margin-top: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    padding: 13px 15px;
+    border: 1px solid rgba(167,139,250,.24);
+    border-radius: 12px;
+    background: rgba(139,92,246,.1);
+    color: #e9d5ff;
+    font-size: 13px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: .25s;
+}
+
+.card-link:hover {
+    background: rgba(139,92,246,.25);
+    border-color: #a78bfa;
+}
+
+/* STUDY STEPS */
+
+.steps {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 15px;
+    margin-top: 25px;
+}
+
+.step {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    padding: 20px;
+    border: 1px solid var(--border);
+    border-radius: 17px;
+    background: rgba(255,255,255,.035);
+}
+
+.step-number {
+    flex-shrink: 0;
+    width: 34px;
+    height: 34px;
+    display: grid;
+    place-items: center;
+    border-radius: 11px;
+    background: linear-gradient(135deg, var(--purple), var(--blue));
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.step h3 {
+    font-size: 14px;
+    margin-bottom: 7px;
+}
+
+.step p {
+    color: var(--muted);
+    font-size: 12px;
+    line-height: 1.8;
+}
+
+/* COMPANY PROMO */
+
+.company-banner {
+    position: relative;
+    overflow: hidden;
+    margin-top: 48px;
+    padding: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 25px;
+    border: 1px solid rgba(103,232,249,.2);
+    border-radius: 24px;
+    background:
+        radial-gradient(circle at 90% 20%, rgba(6,182,212,.14), transparent 35%),
+        linear-gradient(110deg, rgba(139,92,246,.16), rgba(37,99,235,.09));
+}
+
+.company-banner h2 {
+    font-size: clamp(22px, 3vw, 30px);
+    margin-bottom: 12px;
+}
+
+.company-banner p {
+    color: var(--muted);
+    max-width: 650px;
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+.company-button {
+    flex-shrink: 0;
+    min-height: 49px;
+    padding: 0 22px;
+    border: none;
+    border-radius: 13px;
+    background: linear-gradient(100deg, #7c3aed, #2563eb);
+    color: white;
+    font-size: 13px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 8px 25px rgba(79,70,229,.23);
+    transition: .25s;
+}
+
+.company-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 30px rgba(79,70,229,.4);
+}
+
+/* FOOTER */
+
+footer {
+    margin-top: 55px;
+    padding: 30px 20px;
+    text-align: center;
+    border-top: 1px solid var(--border);
+    background: rgba(3,7,18,.55);
+}
+
+.footer-brand {
+    color: #e2e8f0;
+    font-size: 13px;
+    line-height: 1.9;
+}
+
+.footer-brand strong {
+    color: #c4b5fd;
+}
+
+.contact-list {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 15px 25px;
+    margin: 22px 0;
+}
+
+.contact-list a,
+.contact-list span {
+    color: var(--muted);
+    font-size: 12px;
+    text-decoration: none;
+    overflow-wrap: anywhere;
+}
+
+.contact-list a:hover {
+    color: var(--cyan);
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 18px;
+    margin-top: 20px;
+}
+
+.footer-links button {
+    border: none;
+    background: none;
+    color: #94a3b8;
+    font-size: 12px;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.footer-links button:hover {
+    color: white;
+}
+
+.copyright {
+    color: #64748b;
+    font-size: 11px;
+    margin-top: 20px;
+}
+
+/* MODALS */
+
+.modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+    padding: 18px;
+    background: rgba(0,0,0,.82);
+    backdrop-filter: blur(10px);
+}
+
+.modal.open {
+    display: flex;
+}
+
+.modal-content {
+    position: relative;
+    width: 100%;
+    max-width: 720px;
+    max-height: 90vh;
+    overflow-y: auto;
+    padding: 28px;
+    border: 1px solid var(--border);
+    border-radius: 24px;
+    background: #10172d;
+    box-shadow: 0 30px 90px rgba(0,0,0,.5);
+}
+
+.modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    margin-bottom: 22px;
+}
+
+.modal-header h2 {
+    font-size: 23px;
+}
+
+.close-button {
+    flex-shrink: 0;
+    width: 40px;
+    height: 40px;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    background: rgba(255,255,255,.07);
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.modal-content h3 {
+    margin: 22px 0 9px;
+    color: #c4b5fd;
+    font-size: 15px;
+}
+
+.modal-content p,
+.modal-content li {
+    color: #cbd5e1;
+    font-size: 14px;
+    line-height: 1.85;
+}
+
+.modal-content ul {
+    padding-left: 22px;
+}
+
+/* ABOUT COMPANY PRESENTATION */
+
+.company-modal {
+    max-width: 850px;
+    overflow: hidden;
+    padding: 0;
+    background: #080d20;
+}
+
+.company-scene {
+    position: relative;
+    min-height: 580px;
+    padding: 40px 25px;
+    overflow: hidden;
+    isolation: isolate;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.company-scene::before,
+.company-scene::after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    width: 260px;
+    height: 260px;
+    border-radius: 50%;
+    filter: blur(70px);
+    opacity: .5;
+    animation: companyGlow 8s ease-in-out infinite alternate;
+}
+
+.company-scene::before {
+    top: -80px;
+    left: -60px;
+    background: #7c3aed;
+}
+
+.company-scene::after {
+    right: -70px;
+    bottom: -90px;
+    background: #0891b2;
+    animation-delay: 2s;
+}
+
+@keyframes companyGlow {
+    from { transform: translate(0,0); }
+    to { transform: translate(35px,25px); }
+}
+
+.company-close {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    z-index: 20;
+}
+
+.company-kicker {
+    color: #a5f3fc;
+    font-size: 11px;
+    letter-spacing: 3px;
+    font-weight: bold;
+    margin-bottom: 17px;
+}
+
+.company-photo {
+    position: relative;
+    width: 155px;
+    height: 155px;
+    margin: 0 auto 23px;
+    padding: 5px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #c4b5fd, #67e8f9, #8b5cf6);
+    box-shadow: 0 0 55px rgba(139,92,246,.35);
+    animation: photoFloat 4s ease-in-out infinite;
+}
+
+.company-photo img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border: 4px solid #111827;
+    border-radius: 50%;
+}
+
+@keyframes photoFloat {
+    0%, 100% { transform: translateY(0) rotate(-2deg); }
+    50% { transform: translateY(-10px) rotate(2deg); }
+}
+
+.company-scene h2 {
+    font-size: clamp(27px, 5vw, 43px);
+    line-height: 1.15;
+    margin-bottom: 13px;
+}
+
+.company-gradient {
+    color: #c4b5fd;
+    background: linear-gradient(90deg, #c4b5fd, #67e8f9);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.company-intro {
+    max-width: 580px;
+    margin: 0 auto 25px;
+    color: #cbd5e1;
+    font-size: 14px;
+    line-height: 1.9;
+}
+
+.service-pills {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin: 0 auto 25px;
+}
+
+.service-pills span {
+    padding: 10px 13px;
+    border: 1px solid rgba(255,255,255,.14);
+    border-radius: 30px;
+    background: rgba(255,255,255,.055);
+    color: #e2e8f0;
+    font-size: 12px;
+    animation: pillAppear .7s both;
+}
+
+.service-pills span:nth-child(2) { animation-delay: .15s; }
+.service-pills span:nth-child(3) { animation-delay: .3s; }
+.service-pills span:nth-child(4) { animation-delay: .45s; }
+
+@keyframes pillAppear {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.floating-words {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.floating-words span {
+    position: absolute;
+    left: var(--left);
+    bottom: -50px;
+    color: rgba(255,255,255,.13);
+    font-size: var(--size);
+    font-weight: bold;
+    white-space: nowrap;
+    animation: rise var(--duration) linear infinite;
+    animation-delay: var(--delay);
+}
+
+@keyframes rise {
+    from { transform: translateY(0) rotate(-7deg); opacity: 0; }
+    10% { opacity: .8; }
+    85% { opacity: .65; }
+    to { transform: translateY(-750px) rotate(7deg); opacity: 0; }
+}
+
+.company-credit {
+    margin-top: 24px;
+    color: #94a3b8;
+    font-size: 11px;
+    line-height: 1.9;
+}
+
+.company-credit strong {
+    color: #e9d5ff;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 850px) {
+    .welcome {
+        grid-template-columns: 1fr;
+        text-align: center;
+        padding: 35px 25px;
+    }
+
+    .welcome-image {
+        grid-row: 1;
+    }
+
+    .welcome-copy {
+        margin: auto;
+    }
+
+    .motivation {
+        text-align: left;
+    }
+
+    .learning-grid {
+        grid-template-columns: repeat(2, minmax(0,1fr));
+    }
+
+    .steps {
+        grid-template-columns: 1fr;
+    }
+
+    .company-banner {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 560px) {
+    header {
+        padding: 13px 15px;
+    }
+
+    .brand-icon {
+        width: 39px;
+        height: 39px;
+    }
+
+    .brand h2 {
+        font-size: 12px;
+    }
+
+    .brand p {
+        font-size: 10px;
+    }
+
+    .nav-actions {
+        gap: 6px;
+    }
+
+    .nav-button {
+        padding: 9px 10px;
+        font-size: 10px;
+    }
+
+    .container {
+        padding: 22px 15px 40px;
+    }
+
+    .welcome {
+        padding: 29px 20px;
+        border-radius: 22px;
+    }
+
+    h1 {
+        font-size: 38px;
+    }
+
+    .image-ring {
+        width: 165px;
+        height: 165px;
+    }
+
+    .section-heading {
+        align-items: flex-start;
+        flex-direction: column;
+        margin-top: 38px;
+    }
+
+    .section-heading h2 {
+        font-size: 23px;
+    }
+
+    .learning-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .learning-card {
+        min-height: 230px;
+        padding: 23px;
+    }
+
+    .company-banner {
+        padding: 25px 20px;
+    }
+
+    .company-button {
+        width: 100%;
+    }
+
+    .contact-list {
+        flex-direction: column;
+        gap: 13px;
+    }
+
+    .company-scene {
+        min-height: 570px;
+        padding: 55px 20px 35px;
+    }
+
+    .company-photo {
+        width: 130px;
+        height: 130px;
+    }
+
+    .company-scene h2 {
+        font-size: 30px;
+    }
+
+    .company-intro {
+        font-size: 13px;
+    }
+
+    .modal-content {
+        padding: 22px 18px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation: none !important;
+        scroll-behavior: auto !important;
+        transition: none !important;
+    }
+}
 </style>
-
 </head>
 
 <body>
 
-<div class="container">
+<div class="background"></div>
+<div class="glow glow-one"></div>
+<div class="glow glow-two"></div>
 
-<div id="owner">
-<img src="trish2.jpg" alt="App designer" id="pic">
+<header>
+    <div class="brand">
+        <div class="brand-icon" aria-hidden="true">🎓</div>
+        <div>
+            <h2>TRISH MATRIC GUIDE</h2>
+            <p>Your learning journey starts here</p>
+        </div>
+    </div>
+
+    <nav class="nav-actions" aria-label="Main navigation">
+        <a class="nav-button" href="index.html">← HOME</a>
+        <button class="nav-button" type="button" onclick="openModal('companyModal')">
+            ABOUT US
+        </button>
+    </nav>
+</header>
+
+<main class="container">
+
+    <!-- WELCOME SECTION -->
+
+    <section class="welcome">
+
+        <div>
+            <div class="eyebrow">
+                <span class="dot"></span>
+                YOUR MATRIC STUDENT HUB
+            </div>
+
+            <h1>
+                Welcome to your
+                <span class="gradient-text">learning space.</span>
+            </h1>
+
+            <p class="welcome-copy">
+                Hello! I'm Lesley Ntshuxeko Malangana, also known as
+                <strong style="color:white;">TRISH MAN</strong>.
+                I created TRISH MATRIC GUIDE to help matric students
+                access useful study resources and explore their
+                academic journey.
+                <br><br>
+                This guide is a work in progress. Some subjects and
+                resources may not yet be available as I continue
+                gathering and organising information. Thank you for
+                your patience and support.
+            </p>
+
+            <div class="motivation">
+                "Your future is worth preparing for. Start with what
+                you have, learn as you go, and keep moving forward."
+            </div>
+        </div>
+
+        <div class="welcome-image">
+            <div class="image-ring">
+                <img
+                    src="trish2.jpg"
+                    alt="Lesley Ntshuxeko Malangana, creator of TRISH MATRIC GUIDE"
+                >
+            </div>
+        </div>
+
+    </section>
+
+    <!-- LEARNING RESOURCES -->
+
+    <section aria-labelledby="resources-heading">
+
+        <div class="section-heading">
+            <div>
+                <h2 id="resources-heading">Explore Your Resources</h2>
+                <p>Choose where you want to begin your learning journey.</p>
+            </div>
+
+            <span class="section-tag">YOUR NEXT STEP →</span>
+        </div>
+
+        <div class="learning-grid">
+
+            <article class="learning-card">
+                <div class="card-icon purple">📚</div>
+
+                <h3>Study Tips</h3>
+
+                <p>
+                    Discover study advice and practical ideas to help
+                    you organise your learning and prepare for exams.
+                </p>
+
+                <a class="card-link" href="tips.html">
+                    EXPLORE STUDY TIPS <span>→</span>
+                </a>
+            </article>
+
+            <article class="learning-card">
+                <div class="card-icon blue">📝</div>
+
+                <h3>Question Papers</h3>
+
+                <p>
+                    Explore the available question papers and use
+                    practice questions to test your understanding.
+                </p>
+
+                <a class="card-link" href="subjects.html">
+                    VIEW QUESTION PAPERS <span>→</span>
+                </a>
+            </article>
+
+            <article class="learning-card">
+                <div class="card-icon cyan">🎬</div>
+
+                <h3>Learning Videos</h3>
+
+                <p>
+                    Find educational videos that may help you revisit
+                    concepts and understand challenging topics.
+                </p>
+
+                <a class="card-link" href="sources.html">
+                    WATCH VIDEOS <span>→</span>
+                </a>
+            </article>
+
+        </div>
+
+    </section>
+
+    <!-- SIMPLE STUDY GUIDE -->
+
+    <section aria-labelledby="steps-heading">
+
+        <div class="section-heading">
+            <div>
+                <h2 id="steps-heading">A Simple Way to Get Started</h2>
+                <p>Take it one step at a time. You don't have to do everything today.</p>
+            </div>
+        </div>
+
+        <div class="steps">
+
+            <article class="step">
+                <div class="step-number">01</div>
+                <div>
+                    <h3>Start With Study Tips</h3>
+                    <p>
+                        Explore learning strategies and decide which
+                        habits you want to practise.
+                    </p>
+                </div>
+            </article>
+
+            <article class="step">
+                <div class="step-number">02</div>
+                <div>
+                    <h3>Practise With Papers</h3>
+                    <p>
+                        Use available question papers to practise
+                        answering questions and identify topics
+                        you need to revisit.
+                    </p>
+                </div>
+            </article>
+
+            <article class="step">
+                <div class="step-number">03</div>
+                <div>
+                    <h3>Explore Video Lessons</h3>
+                    <p>
+                        Watch relevant educational videos to support
+                        your learning where suitable resources exist.
+                    </p>
+                </div>
+            </article>
+
+        </div>
+
+    </section>
+
+    <!-- COMPANY PROMOTION -->
+
+    <section class="company-banner">
+
+        <div>
+            <h2>Have a business? Give it a website. 💻</h2>
+
+            <p>
+                Malangana Web Design helps businesses establish
+                their online presence with professionally designed
+                websites. Whether you need a business website,
+                an online store, a portfolio or a booking platform,
+                your online journey can start here.
+            </p>
+        </div>
+
+        <button
+            class="company-button"
+            type="button"
+            onclick="openModal('companyModal')"
+        >
+            DISCOVER MALANGANA WEB DESIGN →
+        </button>
+
+    </section>
+
+</main>
+
+<!-- FOOTER -->
+
+<footer>
+
+    <p class="footer-brand">
+        <strong>TRISH MATRIC GUIDE</strong><br>
+        An educational initiative created to help students explore learning resources.<br><br>
+        Designed and developed by <strong>Malangana Web Design</strong><br>
+        Produced by <strong>Lesley Ntshuxeko Malangana</strong>
+    </p>
+
+    <div class="contact-list">
+
+        <a href="tel:0631636039">
+            📞 063-163-6039
+        </a>
+
+        <a href="mailto:ntshuxekomalangana@gmail.com">
+            ✉️ ntshuxekomalangana@gmail.com
+        </a>
+
+        <span>
+            📘 Facebook: MAN TRISH
+        </span>
+
+    </div>
+
+    <div class="footer-links">
+        <button type="button" onclick="openModal('termsModal')">
+            Terms &amp; Conditions
+        </button>
+
+        <button type="button" onclick="openModal('privacyModal')">
+            Privacy Notice
+        </button>
+
+        <button
+            type="button"
+            onclick="window.scrollTo({top:0,behavior:'smooth'})"
+        >
+            Back to Top ↑
+        </button>
+    </div>
+
+    <p class="copyright">
+        &copy; <span id="year"></span> Malangana Web Design.
+        All rights reserved.
+    </p>
+
+</footer>
+
+<!-- COMPANY PRESENTATION MODAL -->
+
+<div
+    class="modal"
+    id="companyModal"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="companyTitle"
+    aria-hidden="true"
+>
+    <div class="modal-content company-modal">
+
+        <section class="company-scene">
+
+            <button
+                class="close-button company-close"
+                type="button"
+                onclick="closeModal('companyModal')"
+                aria-label="Close company presentation"
+            >&times;</button>
+
+            <div class="floating-words" aria-hidden="true">
+                <span style="--left:5%;--size:19px;--duration:13s;--delay:0s;">YOUR BUSINESS ONLINE</span>
+                <span style="--left:58%;--size:15px;--duration:16s;--delay:2s;">CREATIVE WEB DESIGN</span>
+                <span style="--left:22%;--size:23px;--duration:18s;--delay:5s;">BUILD YOUR DIGITAL FUTURE</span>
+                <span style="--left:70%;--size:17px;--duration:14s;--delay:1s;">YOUR VISION, YOUR WEBSITE</span>
+                <span style="--left:12%;--size:15px;--duration:17s;--delay:7s;">MALANGANA WEB DESIGN</span>
+                <span style="--left:48%;--size:20px;--duration:15s;--delay:4s;">STAND OUT ONLINE</span>
+            </div>
+
+            <p class="company-kicker">
+                CREATIVITY • TECHNOLOGY • OPPORTUNITY
+            </p>
+
+            <div class="company-photo">
+                <img
+                    src="trish2.jpg"
+                    alt="Lesley Ntshuxeko Malangana"
+                >
+            </div>
+
+            <h2 id="companyTitle">
+                Malangana
+                <span class="company-gradient">Web Design</span>
+            </h2>
+
+            <p class="company-intro">
+                Your business deserves more than just a name.
+                It deserves an online presence that helps people
+                discover what you offer. We design websites that
+                present your business professionally and make it
+                easier for customers to explore your services.
+            </p>
+
+            <div class="service-pills">
+                <span>🌐 Business Websites</span>
+                <span>🛍️ Online Stores</span>
+                <span>📅 Booking Websites</span>
+                <span>🎨 Portfolio Websites</span>
+            </div>
+
+            <p class="company-intro">
+                From a first online introduction to a website
+                designed around your business needs, let's turn
+                your idea into a digital experience.
+            </p>
+
+            <p class="company-credit">
+                Your vision matters.<br>
+                <strong>Produced by Lesley Ntshuxeko Malangana</strong><br>
+                Malangana Web Design
+            </p>
+
+        </section>
+
+    </div>
 </div>
 
-<h1 style="color:#240b36;">WELCOME TO MY MINI APP</h1>
+<!-- TERMS AND CONDITIONS MODAL -->
 
-<p>
-Hello I'm Lesley ntshuxeko malangana but people call me <b>"TRISH MAN"</b>.
-I designed this app to assist matric students in our country
-and even those outside the country. Your happiness is also my happiness. Sorry to history learners , accounting and others excluded im still gathering data but i promise to provide you with the latest updates. Stay tune for the new version of the app. I will also provide a link to download the app for free. I hope you enjoy using it and please share it with your friends.
-</p><br><br>
+<div
+    class="modal"
+    id="termsModal"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="termsTitle"
+    aria-hidden="true"
+>
+    <div class="modal-content">
 
-<ul>
-<li>DATA IS NEEDED FOR THE APP</li>
-</ul><br>
+        <div class="modal-header">
+            <h2 id="termsTitle">Terms &amp; Conditions</h2>
+            <button class="close-button" type="button"
+                onclick="closeModal('termsModal')"
+                aria-label="Close terms">&times;</button>
+        </div>
 
-<ol>
-<li>FIRST GO THROUGH THE STUDY TIPS</li><br><br>
-<li>AFTER YOU CAN CHECK THE QUESTION PAPERS</li><br><br>
-<li>IF NOT SURE YOU CAN WATCH VIDEO</li><br><br>
-</ol>
-<br>
-<br>
-<br>
+        <h3>1. Purpose</h3>
+        <p>
+            TRISH MATRIC GUIDE provides educational resources and
+            general study guidance to support learners.
+        </p>
 
-<button onclick="window.location.href='tips.html'">STUDY TIPS</button>
-<br>
-<br>
-<br>
+        <h3>2. Educational Information</h3>
+        <p>
+            Materials may be incomplete or change over time. Always
+            confirm examination information, official timetables,
+            admission requirements and application deadlines with
+            the relevant educational institution or official source.
+        </p>
 
-<button onclick="window.location.href='subjects.html'">QUESTION PAPERS</button>
+        <h3>3. Question Papers and Videos</h3>
+        <p>
+            Resources may link to or reference third-party material.
+            Users should respect applicable copyright rules and the
+            terms of the original publishers.
+        </p>
 
-<br>
-<br>
-<br>
+        <h3>4. No Guarantee</h3>
+        <p>
+            The guide does not guarantee examination results,
+            admission, scholarships or employment.
+        </p>
 
-<button onclick="window.location.href='sources.html'">VIDEOS</button>
-<br>
-<br>
-<br>
-<br>
-<br>
-<footer> <img src="call.png" alt="call logo" height="30px" width="30px">info:063-163-6039   <br><br>
-       <img src="email.webp" alt="email logo" height="30px" width="30px"> email:ntshuxekomalangana@gmail.com    <br><br> 
-       <img src="Facebook_logo_(square).png" alt="facebook logo" height="30px" width="30px">FACEBOOK: MAN TRISH<br><br> </footer>
+        <h3>5. Responsible Use</h3>
+        <p>
+            Do not misuse the website, interfere with its operation,
+            or attempt unauthorised access.
+        </p>
 
+        <h3>6. Website Ownership</h3>
+        <p>
+            Website branding, original design and original content
+            may be protected by applicable intellectual property laws.
+            Obtain permission before reusing protected materials.
+        </p>
 
+        <h3>7. Updates</h3>
+        <p>
+            These terms may be updated as the website and its
+            services develop.
+        </p>
 
+        <p style="margin-top:20px;font-size:12px;color:#94a3b8;">
+            This is a general template. Review and adapt it before
+            publishing so that it accurately reflects the service
+            and applicable law.
+        </p>
+
+    </div>
 </div>
 
+<!-- PRIVACY NOTICE MODAL -->
+
+<div
+    class="modal"
+    id="privacyModal"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="privacyTitle"
+    aria-hidden="true"
+>
+    <div class="modal-content">
+
+        <div class="modal-header">
+            <h2 id="privacyTitle">Privacy Notice</h2>
+            <button class="close-button" type="button"
+                onclick="closeModal('privacyModal')"
+                aria-label="Close privacy notice">&times;</button>
+        </div>
+
+        <h3>1. Information</h3>
+        <p>
+            This website should collect personal information only
+            when necessary and for a clear, lawful purpose.
+        </p>
+
+        <h3>2. Use of Information</h3>
+        <p>
+            If information is collected through a form or other
+            feature, it should be used only for the purposes
+            explained to the person providing it.
+        </p>
+
+        <h3>3. Sharing and Security</h3>
+        <p>
+            Personal information should be protected with reasonable
+            security measures and should not be shared unnecessarily.
+        </p>
+
+        <h3>4. Student Safety</h3>
+        <p>
+            Students should avoid publishing passwords, identity
+            numbers, home addresses or other sensitive personal
+            information on public pages.
+        </p>
+
+        <h3>5. External Resources</h3>
+        <p>
+            External websites and video platforms may have their
+            own privacy policies and data practices.
+        </p>
+
+        <h3>6. Privacy Questions</h3>
+        <p>
+            Use the official contact details provided by the website
+            operator to raise a privacy concern.
+        </p>
+
+        <p style="margin-top:20px;font-size:12px;color:#94a3b8;">
+            This is a general template, not a statement that the
+            website has implemented particular privacy measures.
+            Update it to match actual practices and applicable laws,
+            including South Africa's POPIA where relevant.
+        </p>
+
+    </div>
+</div>
+
+<script>
+document.getElementById("year").textContent =
+    new Date().getFullYear();
+
+let lastFocusedElement = null;
+
+function openModal(id) {
+    const modal = document.getElementById(id);
+
+    if (!modal) return;
+
+    lastFocusedElement = document.activeElement;
+
+    document.querySelectorAll(".modal.open").forEach(function(openModalElement) {
+        openModalElement.classList.remove("open");
+        openModalElement.setAttribute("aria-hidden", "true");
+    });
+
+    modal.classList.add("open");
+    modal.setAttribute("aria-hidden", "false");
+    document.body.style.overflow = "hidden";
+
+    const closeButton = modal.querySelector(".close-button");
+
+    if (closeButton) {
+        closeButton.focus();
+    }
+}
+
+function closeModal(id) {
+    const modal = document.getElementById(id);
+
+    if (!modal) return;
+
+    modal.classList.remove("open");
+    modal.setAttribute("aria-hidden", "true");
+
+    const anotherModalIsOpen =
+        document.querySelector(".modal.open");
+
+    if (!anotherModalIsOpen) {
+        document.body.style.overflow = "";
+    }
+
+    if (lastFocusedElement) {
+        lastFocusedElement.focus();
+    }
+}
+
+document.querySelectorAll(".modal").forEach(function(modal) {
+    modal.addEventListener("click", function(event) {
+        if (event.target === modal) {
+            closeModal(modal.id);
+        }
+    });
+});
+
+document.addEventListener("keydown", function(event) {
+    if (event.key === "Escape") {
+        const activeModal = document.querySelector(".modal.open");
+
+        if (activeModal) {
+            closeModal(activeModal.id);
+        }
+    }
+});
+</script>
 
 </body>
 </html>
+```
