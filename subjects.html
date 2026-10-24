@@ -1,112 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>QP</title>
-    <style>
-        body{
-             background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab); 
-             background-size:400% 400%;
-              animation: shift 12s ease infinite; 
- 
-        }
-        #text{
-            border: none;
-            border-radius:30px;
-            height: 30px;
-        
-        }
-        #SEARCH{
-            background:  radial-gradient(circle at top left, #e0eafc, #cfdef3); background-size: 200% 200%;
- animation: mist 10s ease-in-out infinite; 
- border-radius: 50px;
- height: 200px;
-        }
-        #btn{
-            background-color: #23a6d5;
-            text-shadow: #e73c7e;
-            border: double;
-            border-radius: 30%;
-            cursor: pointer;
-            width: 150px;
-        }
-        .paper {
-  background-color: rgba(255, 255, 255, 0.1);
-  border-left: 5px solid #23a6d5;
-  border-radius: 10px;
-  padding: 15px 20px;
-  margin: 12px auto;
-  width: 70%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  cursor: pointer;
-  transition: 0.3s;
-}
-.paper:hover {
-  background-color: rgba(255, 255, 255, 0.25);
-  transform: translateY(-3px);
-  box-shadow: 0px 4px 10px rgba(0,0,0,0.2);
-}
-
-/* Paper text and PDF icon */
-.paper-text {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-.paper-text img {
-  width: 24px;
-  height: 24px;
-}
-
-/* Memo button style */
-.memo {
-  background-color: #23d5ab;
-  color: white;
-  padding: 8px 14px;
-  border-radius: 20px;
-  font-weight: bold;
-  font-size: 14px;
-  cursor: pointer;
-  transition: 0.2s;
-}
-.memo:hover {
-  background-color: #e73c7e;
-}
-#bb{
-            border: none;
-            border-radius: 80px;
-            height: fit-content;
-            background-color:blue;
-            text-decoration-color: #111827;
-            cursor: pointer;
-            color: whitesmoke;
-}
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#10152f">
+<title>Subjects &amp; Study Resources | TRISH MATRIC GUIDE</title>
+<style>
+:root{--ink:#172033;--muted:#626b80;--accent:#6d5dfc;--cyan:#11b8c8}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Inter,Arial,sans-serif;min-height:100vh;padding:22px 15px 36px;color:var(--ink);background:linear-gradient(-45deg,#10152f,#4c1d70,#087e8b,#1e3a8a);background-size:400% 400%;animation:shift 18s ease infinite}
+@keyframes shift{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
+.page{width:min(1100px,100%);margin:auto}
+.top{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:20px}
+.brand{font-weight:900;letter-spacing:.08em;color:#fff;font-size:.9rem}
+.back{display:inline-flex;align-items:center;gap:8px;padding:11px 16px;border-radius:999px;background:rgba(255,255,255,.13);border:1px solid rgba(255,255,255,.3);color:white;text-decoration:none;font-weight:700}
+.back:hover{background:rgba(255,255,255,.24)}
+.hero{padding:clamp(24px,5vw,46px);border-radius:25px;background:linear-gradient(125deg,rgba(20,25,57,.96),rgba(57,38,115,.88));color:#fff;border:1px solid rgba(255,255,255,.2);box-shadow:0 24px 65px rgba(0,0,0,.23);margin-bottom:18px}
+.eyebrow{color:#a9fbff;text-transform:uppercase;letter-spacing:.13em;font-size:.76rem;font-weight:900}
+h1{font-size:clamp(2rem,5vw,3rem);letter-spacing:-.04em;margin:10px 0}
+.hero p{line-height:1.7;color:#e1e7ff;max-width:760px}
+.searchbox{background:rgba(255,255,255,.94);border:1px solid rgba(255,255,255,.6);border-radius:22px;padding:clamp(18px,4vw,28px);box-shadow:0 15px 45px rgba(0,0,0,.14);margin-bottom:18px}
+label{display:block;font-weight:800;margin-bottom:9px}
+.searchrow{display:flex;gap:10px}
+input[type=search]{min-width:0;flex:1;border:1px solid #cbd2e3;border-radius:13px;padding:14px 15px;font-size:1rem;outline:none}
+input[type=search]:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(109,93,252,.15)}
+.searchbtn{border:0;border-radius:13px;padding:13px 20px;background:linear-gradient(135deg,var(--accent),#4c40c9);color:white;font-weight:800;cursor:pointer}
+.searchbtn:hover{filter:brightness(1.08)}
+.hint{color:var(--muted);font-size:.91rem;line-height:1.6;margin-top:10px}
+.tabs{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}
+.tab{border:1px solid rgba(255,255,255,.35);border-radius:13px;padding:12px 17px;background:rgba(255,255,255,.12);color:white;font-weight:800;cursor:pointer}
+.tab[aria-pressed=true]{background:#fff;color:#29245e;border-color:#fff;box-shadow:0 7px 20px rgba(0,0,0,.12)}
+.info{border-radius:15px;padding:14px 16px;background:#e7fbff;border:1px solid #a8edf5;color:#15505a;line-height:1.6;margin-bottom:18px}
+#results{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px}
+.resource{display:flex;justify-content:space-between;align-items:center;gap:14px;background:rgba(255,255,255,.94);border:1px solid rgba(255,255,255,.65);border-left:5px solid var(--cyan);border-radius:17px;padding:17px;box-shadow:0 10px 25px rgba(0,0,0,.1);min-width:0}
+.resource h2{font-size:1rem;line-height:1.45;overflow-wrap:anywhere}
+.resource small{display:block;color:var(--muted);margin-top:5px;line-height:1.5}
+.resource-actions{display:flex;flex-wrap:wrap;gap:8px;flex-shrink:0}
+.action{display:inline-flex;align-items:center;justify-content:center;text-decoration:none;border:0;border-radius:10px;padding:10px 12px;background:#29245e;color:white;font-size:.87rem;font-weight:800;cursor:pointer;white-space:nowrap}
+.action.memo{background:#087f73}
+.action.disabled{background:#d9deea;color:#6c7485;cursor:not-allowed}
+.empty{grid-column:1/-1;padding:25px;border-radius:17px;background:rgba(255,255,255,.93);line-height:1.7;color:#485167}
+footer{margin-top:25px;text-align:center;color:#eef1ff;line-height:1.9}
+footer a{color:#a9fbff;text-decoration:none}
+@media(max-width:760px){#results{grid-template-columns:1fr}.resource{align-items:flex-start}.resource-actions{flex-direction:column}.action{white-space:normal}}
+@media(max-width:430px){.searchrow{flex-direction:column}.searchbtn{width:100%}.resource{flex-direction:column}.resource-actions{width:100%;flex-direction:row}.action{flex:1}}
+</style>
 </head>
 <body>
-  <button id="bb" type="button" onclick="window.location.href='2ndpage.html'"><= back</button>
-    <center><div id="SEARCH" > <br><label FOR="text">SEARCH SUBJECTS</label>
-    <br>
-    <br>
-    <br>
-    <br>
-    
-    <input type="text" id="text" placeholder="search here" required style="background-color: lightblue;">
-    <br>
-    <br>
-    <br>
-    <button type="button" id="btn">SEARCH</button>
-    
-    </div></center>
-    <br>
-    <big><b><p style="color: rgb(29, 31, 34);">NB SEARCH FULL NAME TO APEAR
+<main class="page">
+  <header class="top">
+    <div class="brand">TRISH MATRIC GUIDE</div>
+    <a class="back" href="2ndpage.html">← Back to main page</a>
+  </header>
 
-      e.g mathematics, physical science, life sciences, accounting, economics, geography, history, life orientation, english, isiZulu, mathematical literacy
-    </p></b></big>
-<div id="results"></div>
+  <section class="hero">
+    <div class="eyebrow">Study resources library</div>
+    <h1>Find past papers, memos &amp; textbooks</h1>
+    <p>Search by subject to find available examination papers and textbooks. Pure Mathematics and Physical Sciences past-question-paper resources are included in the paper library. Mathematics textbooks are listed below; upload the PDF files into the <strong>textbooks</strong> folder using the filenames shown.</p>
+  </section>
+
+  <section class="searchbox">
+    <label for="text">Search by subject or resource name</label>
+    <div class="searchrow">
+      <input type="search" id="text" placeholder="e.g. mathematics, physical science, Grade 11" autocomplete="off">
+      <button type="button" class="searchbtn" id="btn">Search resources</button>
+    </div>
+    <p class="hint">Tip: choose “Past Papers &amp; Memos” or “Textbooks” below, then search. You can search for “mathematics”, “pure mathematics”, “physical science”, “Grade 10” or “Grade 11”.</p>
+  </section>
+
+  <nav class="tabs" aria-label="Resource type">
+    <button class="tab" type="button" data-mode="papers" aria-pressed="true">📝 Past Papers &amp; Memos</button>
+    <button class="tab" type="button" data-mode="textbooks" aria-pressed="false">📚 Textbooks</button>
+  </nav>
+
+  <div class="info" id="modeInfo">Showing past papers. Select a subject and open the question paper or memorandum when available.</div>
+  <section id="results" aria-live="polite">
+    <div class="empty">Search for a subject to display the available resources.</div>
+  </section>
+
+  <footer>
+    <p><strong>TRISH MATRIC GUIDE</strong></p>
+    <p>☎ <a href="tel:0631636039">063-163-6039</a> &nbsp; · &nbsp; ✉ <a href="mailto:ntshuxekomalangana@gmail.com">ntshuxekomalangana@gmail.com</a></p>
+    <p>Facebook: MAN TRISH</p>
+  </footer>
+</main>
 
 <script>
 const papers = {
@@ -235,67 +213,155 @@ const papers = {
   ]
 };
 
-// Function to normalize input: lowercase and trim
-const normalize = str => str.trim().toLowerCase();
+// Keep textbook filenames and the folder paths in sync with the files you upload.
+const textbooks = [
+  {name:"Grade 11 Mathematics — Kevin Smith Textbook", grade:"Grade 11", subject:"Pure Mathematics", file:"textbooks/GR11 KEVINSMITH MATHS TEXTBOOK.pdf"},
+  {name:"Grade 11 Mathematics — Platinum Navigation Pack", grade:"Grade 11", subject:"Pure Mathematics", file:"textbooks/Grade-11-Mathematics--Platinum--Navigation-Pack.pdf"},
+  {name:"Grade 11 Mathematics — Teacher Resource (English)", grade:"Grade 11", subject:"Pure Mathematics", file:"textbooks/Gr11_Mathematic-s_Teacher_Eng.pdf"},
+  {name:"Grade 11 Mathematics — Study Guide", grade:"Grade 11", subject:"Pure Mathematics", file:"textbooks/Gr11-Mathematics-Study-Guide_LR.pdf"},
+  {name:"Grade 10 Mathematics — Platinum Navigation Pack", grade:"Grade 10", subject:"Pure Mathematics", file:"textbooks/Grade-10-Mathematics--Platinum--Navigation-Pack.pdf"},
+  {name:"Grade 10 Mathematics — Via Afrika Study Guide", grade:"Grade 10", subject:"Pure Mathematics", file:"textbooks/Gr10-Via-Afrika-Mathematics-Gr10-Study-Guide_LR.pdf"},
+  {name:"Grade 10 Mathematics — Textbook", grade:"Grade 10", subject:"Pure Mathematics", file:"textbooks/113c6ce77a934d-d888f129a06c2e7cc8.pdf"}
+];
 
-const btn = document.getElementById("btn");
+let mode = "papers";
+const input = document.getElementById("text");
 const results = document.getElementById("results");
+const modeInfo = document.getElementById("modeInfo");
+const tabs = [...document.querySelectorAll(".tab")];
 
-btn.onclick = function() {
-  const input = normalize(document.getElementById("text").value);
-  results.innerHTML = ""; // Clear previous results
-  let found = false;
+function normalise(value) {
+  return value.toLowerCase().trim().replace(/\s+/g, " ");
+}
 
-  for (const key in papers) {
-    if (normalize(key) === input) {
-      found = true;
+function matchesSubject(key, query) {
+  const q = normalise(query);
+  const k = normalise(key);
+  if (!q || k.includes(q) || q.includes(k)) return true;
+  if (["pure maths", "pure mathematics", "maths"].includes(q)) return k === "mathematics";
+  if (["physical sciences", "physics", "chemistry"].includes(q)) return k === "physical science";
+  return false;
+}
 
-      papers[key].forEach(paper => {
-        // Create main card div
-        const div = document.createElement("div");
-        div.className = "paper";
+function makeAction(label, href, extraClass = "") {
+  if (!href || normalise(href) === "none") {
+    const span = document.createElement("span");
+    span.className = "action disabled";
+    span.textContent = "Not available";
+    span.setAttribute("aria-disabled", "true");
+    return span;
+  }
+  const link = document.createElement("a");
+  link.className = "action " + extraClass;
+  link.href = href.trim();
+  link.target = "_blank";
+  link.rel = "noopener noreferrer";
+  link.textContent = label;
+  return link;
+}
 
-        // Left section: icon + paper name
-        const left = document.createElement("div");
-        left.className = "paper-text";
+function showEmpty(message) {
+  results.replaceChildren();
+  const empty = document.createElement("div");
+  empty.className = "empty";
+  empty.textContent = message;
+  results.appendChild(empty);
+}
 
-        const icon = document.createElement("img");
-        icon.src = "pdf-icon.png"; // Place your PDF icon in the folder
-        icon.alt = "PDF";
+function addResourceCard({name, subtitle, file, memo, kind}) {
+  const card = document.createElement("article");
+  card.className = "resource";
 
-        const title = document.createElement("span");
-        title.textContent = paper.name;
+  const content = document.createElement("div");
+  const heading = document.createElement("h2");
+  heading.textContent = name;
+  content.appendChild(heading);
+  const small = document.createElement("small");
+  small.textContent = subtitle || "";
+  content.appendChild(small);
 
-        left.appendChild(icon);
-        left.appendChild(title);
+  const actions = document.createElement("div");
+  actions.className = "resource-actions";
+  actions.appendChild(makeAction(kind === "textbook" ? "Open textbook" : "Open paper", file));
+  if (kind === "paper") actions.appendChild(makeAction("View memo", memo, "memo"));
 
-        // Memo button
-        const memoBtn = document.createElement("span");
-        memoBtn.className = "memo";
-        memoBtn.textContent = "View Memo";
-        memoBtn.onclick = e => {
-          e.stopPropagation(); // Prevent opening main paper
-          window.open(paper.memo, "_blank");
-        };
+  card.append(content, actions);
+  results.appendChild(card);
+}
 
-        // Open paper on clicking the card
-        div.onclick = () => window.open(paper.link, "_blank");
+function searchResources() {
+  const query = input.value.trim();
+  results.replaceChildren();
 
-        // Append left section and memo button to card
-        div.appendChild(left);
-        div.appendChild(memoBtn);
+  if (mode === "textbooks") {
+    const q = normalise(query);
+    const found = textbooks.filter(book => {
+      if (!q) return true;
+      const searchable = normalise(`${book.name} ${book.grade} ${book.subject} mathematics maths pure`);
+      return searchable.includes(q) ||
+        (["pure maths", "pure mathematics", "maths"].includes(q) && book.subject === "Pure Mathematics") ||
+        (["grade 10", "gr10", "grade10"].includes(q) && book.grade === "Grade 10") ||
+        (["grade 11", "gr11", "grade11"].includes(q) && book.grade === "Grade 11");
+    });
 
-        results.appendChild(div);
-      });
+    if (found.length) {
+      found.forEach(book => addResourceCard({
+        name: book.name,
+        subtitle: `${book.grade} · ${book.subject}`,
+        file: book.file,
+        kind: "textbook"
+      }));
+    } else if (["physical science", "physical sciences", "physics", "chemistry"].includes(normalise(query))) {
+      showEmpty("Physical Sciences textbook resources are planned for this section, but no Physical Sciences textbook PDF has been added to the supplied list yet. You can still find Physical Sciences past papers by switching to “Past Papers & Memos”.");
+    } else {
+      showEmpty("No textbook matches that search. Try “mathematics”, “Grade 10” or “Grade 11”.");
     }
+    modeInfo.textContent = "Showing Mathematics textbooks from the supplied list. Make sure each PDF is uploaded into the textbooks folder with the exact filename shown in the code.";
+    return;
   }
 
-  if (!found) {
-    results.innerHTML = "<p>❌ No papers found for that subject.</p>";
+  const q = normalise(query);
+  const foundSubjects = Object.keys(papers).filter(key => matchesSubject(key, q));
+  if (!q) {
+    showEmpty("Enter a subject name, such as “mathematics” or “physical science”, to view papers.");
+    modeInfo.textContent = "Showing past papers. Search by subject to display the available question papers and memos.";
+    return;
   }
-};
+  if (!foundSubjects.length) {
+    showEmpty("No past papers were found for that subject. Check the spelling or try a subject such as “mathematics” or “physical science”.");
+    return;
+  }
+
+  let count = 0;
+  foundSubjects.forEach(subject => {
+    papers[subject].forEach(paper => {
+      addResourceCard({
+        name: paper.name,
+        subtitle: `Subject: ${subject}`,
+        file: paper.link,
+        memo: paper.memo,
+        kind: "paper"
+      });
+      count++;
+    });
+  });
+  modeInfo.textContent = `Showing ${count} past-paper entries for: ${foundSubjects.join(", ")}. Some older entries in the original list have missing file paths; those are marked “Not available”.`;
+}
+
+tabs.forEach(tab => {
+  tab.addEventListener("click", () => {
+    mode = tab.dataset.mode;
+    tabs.forEach(item => item.setAttribute("aria-pressed", String(item === tab)));
+    modeInfo.textContent = mode === "textbooks"
+      ? "Search the currently listed Mathematics textbooks. Physical Sciences textbooks can be added when their filenames are provided."
+      : "Showing past papers. Select a subject and open the question paper or memorandum when available.";
+    searchResources();
+  });
+});
+document.getElementById("btn").addEventListener("click", searchResources);
+input.addEventListener("keydown", event => {
+  if (event.key === "Enter") searchResources();
+});
 </script>
-
-
-  </script>
+</body>
 </html>
