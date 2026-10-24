@@ -1,177 +1,176 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Matric Study Guide — Videos</title>
-  <style>
-    body{ background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab); animation: shift 12s
-ease infinite;}
-    
-    #trr{
-        
-            border: none;
-            border-radius: 80px;
-            height: fit-content;
-
-            background-color:black;
-            text-decoration-color: #111827;
-            cursor: pointer;
-            color: whitesmoke;
-    }
-    
-
-        
-    
-    .style{
-        background: rgba(255, 255, 255, 0.3);
-  backdrop-filter: blur(10px);
-  color: #4a4a4a;
-  padding: 20px;
-  text-align: center;
-  border-radius: 20px;
-  font-family: 'Poppins', sans-serif;
-  font-size: 2em;
-  box-shadow: 0 4px 15px rgba(255, 182, 193, 0.4);
-    }
-    .sty{
-        background: linear-gradient(90deg, #ff9a9e 0%, #fecfef 100%);
-  color: white;
-  padding: 20px;
-  border-radius: 20px;
-  text-align: center;
-  font-family: 'Poppins', sans-serif;
-  font-size: 2em;
-  box-shadow: 0 4px 15px rgba(255, 182, 193, 0.3);
-    }
-    div{ margin: 0;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
-  font-family: 'Poppins', sans-serif;
-  color: white; width: 1200px; height:  350px; padding-top: 1px;}
-    .W{ margin-left: 20px;}
-    .Q{margin-right: 20PX;}
-    .pl{
-        margin: 0;
-  height: 100vh;
-  background: linear-gradient(135deg, #fbc2eb 0%, #a6c1ee 100%);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-family: 'Poppins', sans-serif;
-  color: white;
-   width: 1200px;
-    height:  350px;
-     padding-top: 1px;
-    }
-    footer{
-        background: linear-gradient(90deg, #ff9a9e, #fecfef);
-  color: white;
-  text-align: center;
-  padding: 20px;
-  font-family: 'Poppins', sans-serif;
-  border-top-left-radius: 20px;
-  border-top-right-radius: 20px;
-  box-shadow: 0 -4px 10px rgba(255, 182, 193, 0.3);
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#10152f">
+<title>Video Learning Hub | TRISH MATRIC GUIDE</title>
+<style>
+:root{--ink:#172033;--muted:#626b80;--accent:#6d5dfc;--cyan:#11b8c8}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Inter,Arial,sans-serif;min-height:100vh;padding:22px 15px 35px;color:var(--ink);background:linear-gradient(-45deg,#10152f,#4c1d70,#087e8b,#1e3a8a);background-size:400% 400%;animation:shift 18s ease infinite}
+@keyframes shift{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;scroll-behavior:auto!important;transition:none!important}}
+.page{width:min(1180px,100%);margin:auto}
+.top{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:20px}
+.brand{font-weight:900;letter-spacing:.08em;color:white;font-size:.9rem}
+.back{display:inline-flex;align-items:center;gap:8px;padding:11px 16px;border-radius:999px;background:rgba(255,255,255,.13);border:1px solid rgba(255,255,255,.3);color:white;text-decoration:none;font-weight:700}
+.back:hover{background:rgba(255,255,255,.24)}
+.hero{padding:clamp(25px,5vw,48px);border-radius:26px;background:linear-gradient(125deg,rgba(20,25,57,.96),rgba(57,38,115,.88));color:white;border:1px solid rgba(255,255,255,.2);box-shadow:0 24px 65px rgba(0,0,0,.23);margin-bottom:20px;position:relative;overflow:hidden}
+.hero:after{content:"▶";position:absolute;right:5%;top:12%;font-size:clamp(4rem,13vw,9rem);color:rgba(255,255,255,.07);font-weight:900;pointer-events:none}
+.eyebrow{color:#a9fbff;text-transform:uppercase;letter-spacing:.13em;font-size:.76rem;font-weight:900}
+h1{font-size:clamp(2rem,5vw,3.2rem);letter-spacing:-.04em;margin:10px 0}
+.hero p{line-height:1.7;color:#e1e7ff;max-width:770px}
+.stats{display:flex;gap:9px;flex-wrap:wrap;margin-top:20px}
+.stats span{padding:8px 12px;border-radius:999px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.16);font-size:.88rem}
+.tools{background:rgba(255,255,255,.95);border:1px solid rgba(255,255,255,.6);border-radius:20px;padding:18px;margin-bottom:18px;box-shadow:0 14px 40px rgba(0,0,0,.13)}
+.searchline{display:flex;gap:10px;margin-bottom:14px}
+input[type=search]{min-width:0;flex:1;border:1px solid #cbd2e3;border-radius:12px;padding:13px 14px;font-size:1rem;outline:none}
+input[type=search]:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(109,93,252,.14)}
+.filters{display:flex;gap:9px;flex-wrap:wrap}
+.filter{border:1px solid #dce0ee;border-radius:999px;padding:10px 14px;background:#f6f7fc;color:#343d53;font-weight:800;cursor:pointer}
+.filter[aria-pressed=true]{background:#29245e;color:white;border-color:#29245e}
+.count{color:var(--muted);font-size:.9rem;margin-top:13px}
+.section-title{display:flex;justify-content:space-between;align-items:end;gap:10px;flex-wrap:wrap;color:white;margin:25px 2px 13px}
+.section-title h2{font-size:1.5rem}
+.section-title p{font-size:.9rem;color:#e0e7ff}
+.video-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.video-card{min-width:0;overflow:hidden;border-radius:19px;background:rgba(255,255,255,.96);border:1px solid rgba(255,255,255,.65);box-shadow:0 14px 35px rgba(0,0,0,.15);transition:transform .2s,box-shadow .2s}
+.video-card:hover{transform:translateY(-3px);box-shadow:0 19px 40px rgba(0,0,0,.2)}
+.frame{position:relative;width:100%;aspect-ratio:16/9;background:#111827}
+.frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.video-copy{padding:16px}
+.badges{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:9px}
+.badge{font-size:.74rem;font-weight:900;padding:5px 8px;border-radius:999px;background:#edecff;color:#4137a2}
+.badge.science{background:#e3fbf7;color:#12675e}
+.video-copy h3{font-size:1.03rem;line-height:1.45}
+.video-copy p{font-size:.88rem;line-height:1.55;color:var(--muted);margin-top:7px}
+.open-video{display:inline-flex;margin-top:12px;text-decoration:none;background:#29245e;color:white;border-radius:10px;padding:9px 12px;font-size:.86rem;font-weight:800}
+.empty{grid-column:1/-1;background:rgba(255,255,255,.94);border-radius:16px;padding:24px;line-height:1.6;color:#4a5265}
+footer{margin-top:28px;padding:22px;border-radius:20px;background:rgba(9,13,35,.78);border:1px solid rgba(255,255,255,.18);color:#e8edff;text-align:center;line-height:1.9}
+footer a{color:#a9fbff;text-decoration:none}
+@media(max-width:760px){.video-grid{grid-template-columns:1fr}.hero{border-radius:21px}}
+@media(max-width:440px){.searchline{flex-direction:column}.searchline button{width:100%}.filter{flex:1}}
+</style>
 </head>
 <body>
+<main class="page">
+  <header class="top">
+    <div class="brand">TRISH MATRIC GUIDE</div>
+    <a class="back" href="2ndpage.html">← Back to main page</a>
+  </header>
+  <section class="hero">
+    <div class="eyebrow">Watch · Learn · Practise</div>
+    <h1>Your video learning hub</h1>
+    <p>Explore video lessons for Pure Mathematics and Physical Sciences. Search by topic, choose a subject, and watch lessons that support your revision. After watching, practise similar questions in your textbook or past papers.</p>
+    <div class="stats"><span>▶ Mathematics lessons</span><span>⚛ Physical Sciences lessons</span><span>📱 Mobile-friendly player layout</span></div>
+  </section>
 
-<header>
-   <button id="trr" onclick="window.location.href='2ndpage.html'"><= back</button><center><h1>TRISH Matric Study Guide </h1></center>
-  
-</header>
-<center><h1 class="style">MATHS</h1></center>
-<br><br><center><div>
-<iframe class="Q" width="560" height="315" src="https://www.youtube.com/embed/videoseries?list=PLUPEBWbAHUsy-ow8RdnlRokMT9UrHb2Kd" title="Algebra Playlist" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-<iframe class="W" width="560" height="315" src="https://www.youtube.com/embed/vV7C7bXm4VI?si=Jk8ekGah1mrmcFh8" title="Number Patterns - Math Antics" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
-<br><br><br>
-<div><iframe id="Q" width="560" height="315" src="https://www.youtube.com/embed/lGfsp2CWjok?si=Jk8ekGah1mrmcFh8" title="Learn Functions in 7 Minutes" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-<iframe class="W" width="560" height="315" src="https://www.youtube.com/embed/9m7cBjRvVOw?si=Jk8ekGah1mrmcFh8" title="Functions Lesson #1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
-<br><br><br>
-<div><iframe id="Q" width="560" height="315" src="https://www.youtube.com/embed/KzfWUEJjG18?si=Jk8ekGah1mrmcFh8" title="Basic Probability - Math Antics" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-<iframe class="W" width="560" height="315" src="https://www.youtube.com/embed/7XuNVVlD98g?si=Jk8ekGah1mrmcFh8" title="Probability Fun - Scratch Garden" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
-<br><br><br>
-<div><iframe id="Q" width="560" height="315" src="https://www.youtube.com/embed/videoseries?list=PLHdRLeAbIZE6jDdorvN8MOZCqvSci2c6F" title="Financial Mathematics Playlist" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-<iframe class="W" width="560" height="315" src="https://www.youtube.com/embed/xxpc-HPKN28?si=Jk8ekGah1mrmcFh8" title="Introduction to Statistics - Math Antics" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
-<br><br><br>
-<div><iframe id="Q" width="560" height="315" src="https://www.youtube.com/embed/vYd8b7D9RkM?si=Jk8ekGah1mrmcFh8" title="Grade 12 Statistics South Africa Lesson" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-<iframe class="W" width="560" height="315" src="https://www.youtube.com/embed/videoseries?list=PLHdRLeAbIZE7u1uOPzMFJo2rSEULnd-VK" title="Statistics Playlist - South Africa Curriculum" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
-<br><br><br>
+  <section class="tools" aria-label="Search and filter videos">
+    <div class="searchline">
+      <input id="videoSearch" type="search" placeholder="Search algebra, probability, mechanics..." aria-label="Search video lessons">
+      <button class="filter" type="button" id="clearSearch">Clear search</button>
+    </div>
+    <div class="filters" aria-label="Filter by subject">
+      <button class="filter" type="button" data-filter="All" aria-pressed="true">All videos</button>
+      <button class="filter" type="button" data-filter="Mathematics" aria-pressed="false">∑ Mathematics</button>
+      <button class="filter" type="button" data-filter="Physical Sciences" aria-pressed="false">⚛ Physical Sciences</button>
+    </div>
+    <p class="count" id="resultCount" aria-live="polite"></p>
+  </section>
 
-<div>
-<iframe class="Q" width="560" height="315" src="https://www.youtube.com/embed/videoseries?list=PLUPEBWbAHUsy-ow8RdnlRokMT9UrHb2Kd" title="Algebra Playlist" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+  <div class="section-title"><div><h2>Video lessons</h2><p>Choose a lesson to watch it here or open it on YouTube.</p></div></div>
+  <section class="video-grid" id="videoGrid" aria-live="polite"></section>
 
-<iframe class="W" width="560" height="315" src="https://www.youtube.com/embed/q3zN1NXH8f4" title="Basic Algebra Simplified" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-</div>
-<br><br><br>
+  <footer>
+    <p><strong>TRISH MATRIC GUIDE</strong> · Keep learning one topic at a time.</p>
+    <p>☎ <a href="tel:0631636039">063-163-6039</a> &nbsp; · &nbsp; ✉ <a href="mailto:ntshuxekomalangana@gmail.com">ntshuxekomalangana@gmail.com</a></p>
+    <p>Facebook: MAN TRISH</p>
+    <p style="font-size:.84rem;color:#c5cce5">Videos are embedded from YouTube. Availability and content are controlled by their respective publishers.</p>
+  </footer>
+</main>
+<script>
+const videos = [{"title": "Algebra Playlist", "url": "https://www.youtube.com/embed/videoseries?list=PLUPEBWbAHUsy-ow8RdnlRokMT9UrHb2Kd", "category": "Mathematics", "topic": "Algebra"}, {"title": "Number Patterns - Math Antics", "url": "https://www.youtube.com/embed/vV7C7bXm4VI?si=Jk8ekGah1mrmcFh8", "category": "Mathematics", "topic": "Number Patterns"}, {"title": "Learn Functions in 7 Minutes", "url": "https://www.youtube.com/embed/lGfsp2CWjok?si=Jk8ekGah1mrmcFh8", "category": "Mathematics", "topic": "Functions"}, {"title": "Functions Lesson #1", "url": "https://www.youtube.com/embed/9m7cBjRvVOw?si=Jk8ekGah1mrmcFh8", "category": "Mathematics", "topic": "Functions"}, {"title": "Basic Probability - Math Antics", "url": "https://www.youtube.com/embed/KzfWUEJjG18?si=Jk8ekGah1mrmcFh8", "category": "Mathematics", "topic": "Probability"}, {"title": "Probability Fun - Scratch Garden", "url": "https://www.youtube.com/embed/7XuNVVlD98g?si=Jk8ekGah1mrmcFh8", "category": "Mathematics", "topic": "Probability"}, {"title": "Financial Mathematics Playlist", "url": "https://www.youtube.com/embed/videoseries?list=PLHdRLeAbIZE6jDdorvN8MOZCqvSci2c6F", "category": "Mathematics", "topic": "Financial Mathematics"}, {"title": "Introduction to Statistics - Math Antics", "url": "https://www.youtube.com/embed/xxpc-HPKN28?si=Jk8ekGah1mrmcFh8", "category": "Mathematics", "topic": "Statistics"}, {"title": "Grade 12 Statistics South Africa Lesson", "url": "https://www.youtube.com/embed/vYd8b7D9RkM?si=Jk8ekGah1mrmcFh8", "category": "Mathematics", "topic": "Statistics"}, {"title": "Statistics Playlist - South Africa Curriculum", "url": "https://www.youtube.com/embed/videoseries?list=PLHdRLeAbIZE7u1uOPzMFJo2rSEULnd-VK", "category": "Mathematics", "topic": "Statistics"}, {"title": "Algebra Playlist", "url": "https://www.youtube.com/embed/videoseries?list=PLUPEBWbAHUsy-ow8RdnlRokMT9UrHb2Kd", "category": "Mathematics", "topic": "Algebra"}, {"title": "Basic Algebra Simplified", "url": "https://www.youtube.com/embed/q3zN1NXH8f4", "category": "Mathematics", "topic": "Algebra"}, {"title": "Number Patterns - Math Antics", "url": "https://www.youtube.com/embed/vV7C7bXm4VI?si=Jk8ekGah1mrmcFh8", "category": "Mathematics", "topic": "Number Patterns"}, {"title": "Arithmetic and Geometric Sequences", "url": "https://www.youtube.com/embed/7zWkTFZEq-g", "category": "Mathematics", "topic": "Number Patterns"}, {"title": "Understanding Functions – Graphs and Equations", "url": "https://www.youtube.com/embed/ftuK5Wz9X1E", "category": "Mathematics", "topic": "Functions"}, {"title": "Inverse and Composite Functions", "url": "https://www.youtube.com/embed/ivkDmgGxvCE", "category": "Mathematics", "topic": "Functions"}, {"title": "Introduction to Probability", "url": "https://www.youtube.com/embed/SkidyDQuupA", "category": "Mathematics", "topic": "Probability"}, {"title": "Conditional Probability Made Easy", "url": "https://www.youtube.com/embed/ibINrxJLvlM", "category": "Mathematics", "topic": "Probability"}, {"title": "Financial Mathematics – Grade 12", "url": "https://www.youtube.com/embed/9rkYaFuiQbM", "category": "Mathematics", "topic": "Financial Mathematics"}, {"title": "Simple and Compound Interest Explained", "url": "https://www.youtube.com/embed/7bn_tz4p6O8", "category": "Mathematics", "topic": "Financial Mathematics"}, {"title": "Basic Introduction To Mechanics", "url": "https://www.youtube.com/embed/rnshfIpWurk", "category": "Physical Sciences", "topic": "Mechanics"}, {"title": "Mechanics Tutorial", "url": "https://www.youtube.com/embed/yQnrwHE-tpI", "category": "Physical Sciences", "topic": "Mechanics"}, {"title": "Physics Basic Introduction", "url": "https://www.youtube.com/embed/b1t41Q3xRM8", "category": "Physical Sciences", "topic": "Physics"}, {"title": "Acids and Bases Basic Introduction", "url": "https://www.youtube.com/embed/FM2MpMbV0rw", "category": "Physical Sciences", "topic": "Acids and Bases"}, {"title": "Introduction to Acids and Bases", "url": "https://www.youtube.com/embed/mSL4QpJkeW4", "category": "Physical Sciences", "topic": "Acids and Bases"}, {"title": "Organic Acids and Bases Intro", "url": "https://www.youtube.com/embed/b2hEMwsp8Oc", "category": "Physical Sciences", "topic": "Acids and Bases"}, {"title": "Wave properties | High School Physics | Khan Academy", "url": "https://www.youtube.com/embed/ClHuscLyuLo?si=Jk8ekGah1mrmcFh8", "category": "Physical Sciences", "topic": "Physics"}, {"title": "Electrochemistry Review", "url": "https://www.youtube.com/embed/ImV8LyujjqY?si=Jk8ekGah1mrmcFh8", "category": "Physical Sciences", "topic": "Electrochemistry"}];
+const grid = document.getElementById("videoGrid");
+const search = document.getElementById("videoSearch");
+const resultCount = document.getElementById("resultCount");
+let activeFilter = "All";
 
-<div>
-<iframe class="Q" width="560" height="315" src="https://www.youtube.com/embed/vV7C7bXm4VI?si=Jk8ekGah1mrmcFh8" title="Number Patterns - Math Antics" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+function renderVideos(){
+  const query = search.value.trim().toLowerCase();
+  const filtered = videos.filter(video => {
+    const subjectMatch = activeFilter === "All" || video.category === activeFilter;
+    const textMatch = !query || `${video.title} ${video.category} ${video.topic}`.toLowerCase().includes(query);
+    return subjectMatch && textMatch;
+  });
+  grid.replaceChildren();
+  resultCount.textContent = `${filtered.length} lesson${filtered.length === 1 ? "" : "s"} shown`;
 
-<iframe class="W" width="560" height="315" src="https://www.youtube.com/embed/7zWkTFZEq-g" title="Arithmetic and Geometric Sequences" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-</div>
-<br><br><br>
+  if(!filtered.length){
+    const empty = document.createElement("div");
+    empty.className = "empty";
+    empty.textContent = "No lessons match that search. Try another topic or select “All videos”.";
+    grid.appendChild(empty);
+    return;
+  }
 
+  filtered.forEach(video => {
+    const card = document.createElement("article");
+    card.className = "video-card";
+    const frame = document.createElement("div");
+    frame.className = "frame";
+    const iframe = document.createElement("iframe");
+    iframe.src = video.url;
+    iframe.title = video.title;
+    iframe.loading = "lazy";
+    iframe.referrerPolicy = "strict-origin-when-cross-origin";
+    iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
+    iframe.allowFullscreen = true;
+    frame.appendChild(iframe);
 
-
-<div>
-<iframe class="Q" width="560" height="315" src="https://www.youtube.com/embed/ftuK5Wz9X1E" title="Understanding Functions – Graphs and Equations" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-
-<iframe class="W" width="560" height="315" src="https://www.youtube.com/embed/ivkDmgGxvCE" title="Inverse and Composite Functions" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-</div>
-<br><br><br>
-
-
-
-<div>
-<iframe class="Q" width="560" height="315" src="https://www.youtube.com/embed/SkidyDQuupA" title="Introduction to Probability" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-
-<iframe class="W" width="560" height="315" src="https://www.youtube.com/embed/ibINrxJLvlM" title="Conditional Probability Made Easy" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-</div>
-<br><br><br>
-
-
-
-<div>
-<iframe class="Q" width="560" height="315" src="https://www.youtube.com/embed/9rkYaFuiQbM" title="Financial Mathematics – Grade 12" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-
-<iframe class="W" width="560" height="315" src="https://www.youtube.com/embed/7bn_tz4p6O8" title="Simple and Compound Interest Explained" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-</div>
-<br><br><br>
-
-
-</center>
-<br><br><br><br><br>
-<center><h1 class="sty">PHYSICAL SCIENCES</h1></center>
-<br><br><br>
-
-<center><div class="pl">
-<iframe class="Q" width="560" height="315" src="https://www.youtube.com/embed/rnshfIpWurk" title="Basic Introduction To Mechanics" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-<iframe class="W" width="560" height="315" src="https://www.youtube.com/embed/yQnrwHE-t pI" title="Mechanics Tutorial" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
-<br><br><br>
-<div class="pl"><iframe class="Q" width="560" height="315" src="https://www.youtube.com/embed/b1t41Q3xRM8" title="Physics Basic Introduction" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-<iframe class="W" width="560" height="315" src="https://www.youtube.com/embed/FM2MpMbV0rw" title="Acids and Bases Basic Introduction" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
-<br><br><br>
-<div class="pl"><iframe class="Q" width="560" height="315" src="https://www.youtube.com/embed/mSL4QpJkeW4" title="Introduction to Acids and Bases" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-<iframe class="W" width="560" height="315" src="https://www.youtube.com/embed/b2hEMwsp8Oc" title="Organic Acids and Bases Intro" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
-<br><br><br>
-<div class="pl"><iframe class="Q" width="560" height="315" src="https://www.youtube.com/embed/ClHuscLyuLo?si=Jk8ekGah1mrmcFh8" title="Wave properties | High School Physics | Khan Academy" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-<iframe class="W" width="560" height="315" src="https://www.youtube.com/embed/ImV8LyujjqY?si=Jk8ekGah1mrmcFh8" title="Electrochemistry Review" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
-<br><br><br>
-
-</center>
-
-<footer> <img src="call.png" alt="call logo" height="30px" width="30px">info:063-163-6039   <br><br>
-       <img src="email.webp" alt="email logo" height="30px" width="30px"> email:ntshuxekomalangana@gmail.com    <br><br> 
-       <img src="Facebook_logo_(square).png" alt="facebook logo" height="30px" width="30px">FACEBOOK: MAN TRISH<br><br> 
-</footer>
-
-
-
+    const copy = document.createElement("div");
+    copy.className = "video-copy";
+    const badges = document.createElement("div");
+    badges.className = "badges";
+    const subject = document.createElement("span");
+    subject.className = "badge " + (video.category === "Physical Sciences" ? "science" : "");
+    subject.textContent = video.category;
+    const topic = document.createElement("span");
+    topic.className = "badge";
+    topic.textContent = video.topic;
+    badges.append(subject, topic);
+    const title = document.createElement("h3");
+    title.textContent = video.title;
+    const description = document.createElement("p");
+    description.textContent = "Watch the lesson, take notes, then practise the topic using your classwork or question papers.";
+    const link = document.createElement("a");
+    link.className = "open-video";
+    link.href = video.url.replace("/embed/", "/watch?v=").split("&")[0];
+    link.target = "_blank";
+    link.rel = "noopener noreferrer";
+    link.textContent = "Open on YouTube ↗";
+    copy.append(badges, title, description, link);
+    card.append(frame, copy);
+    grid.appendChild(card);
+  });
+}
+document.querySelectorAll("[data-filter]").forEach(button => {
+  button.addEventListener("click", () => {
+    activeFilter = button.dataset.filter;
+    document.querySelectorAll("[data-filter]").forEach(item => item.setAttribute("aria-pressed", String(item === button)));
+    renderVideos();
+  });
+});
+search.addEventListener("input", renderVideos);
+document.getElementById("clearSearch").addEventListener("click", () => {
+  search.value = "";
+  activeFilter = "All";
+  document.querySelectorAll("[data-filter]").forEach(item => item.setAttribute("aria-pressed", String(item.dataset.filter === "All")));
+  renderVideos();
+  search.focus();
+});
+renderVideos();
+</script>
 </body>
 </html>
