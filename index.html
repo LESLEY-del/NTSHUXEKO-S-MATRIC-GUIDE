@@ -1,81 +1,1059 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#080d20">
 
-<title>MATRIC</title>
+<meta name="description"
+content="TRISH MATRIC GUIDE helps matric students organise their studies, find direction and prepare for their future. Produced by Malangana Web Design.">
+
+<title>TRISH MATRIC GUIDE | Your Future Starts Here</title>
 
 <style>
-
-body{
-background-image: url('1773587238155.png');
-background-size: cover;
-text-align: center;
+:root {
+    --bg: #080d20;
+    --panel: rgba(18, 27, 57, 0.78);
+    --primary: #8b5cf6;
+    --secondary: #38bdf8;
+    --text: #f8fafc;
+    --muted: #b8c4dc;
+    --border: rgba(255,255,255,.14);
 }
 
-#pic{
-width: 250px;
-height: 250px;
-border-radius: 50%;
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
-#profile{
-height: 250px;
-width: 350px;
-margin-top: 40px;
-border: double;
-box-shadow: 0px 4px 10px gray;
-margin-left: auto;
-margin-right: auto;
+html {
+    scroll-behavior: smooth;
 }
 
-#button{
-margin-top: 50px;
-border: none;
-border-radius: 80px;
-width: 300px;
-height:60px;
-background-color:grey;
-color: whitesmoke;
-cursor: pointer;
-font-size:18px;
+body {
+    min-height: 100vh;
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--text);
+    background: var(--bg);
+    overflow-x: hidden;
 }
 
+/* Background */
+
+.background {
+    position: fixed;
+    inset: 0;
+    z-index: -3;
+    background:
+        linear-gradient(135deg,
+        rgba(5, 10, 28, .92),
+        rgba(23, 17, 60, .84),
+        rgba(4, 25, 49, .91)),
+        url("1773587238155.png") center/cover no-repeat;
+}
+
+.glow {
+    position: fixed;
+    width: 350px;
+    height: 350px;
+    border-radius: 50%;
+    filter: blur(100px);
+    opacity: .23;
+    z-index: -2;
+    pointer-events: none;
+    animation: float 9s ease-in-out infinite alternate;
+}
+
+.glow-one {
+    background: #8b5cf6;
+    top: 10%;
+    left: -150px;
+}
+
+.glow-two {
+    background: #06b6d4;
+    bottom: 5%;
+    right: -150px;
+    animation-delay: 2s;
+}
+
+@keyframes float {
+    from { transform: translateY(-20px); }
+    to { transform: translateY(40px); }
+}
+
+/* Navigation */
+
+header {
+    width: 100%;
+    padding: 20px 6%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    border-bottom: 1px solid var(--border);
+    background: rgba(5, 10, 28, .42);
+    backdrop-filter: blur(15px);
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.brand-icon {
+    width: 46px;
+    height: 46px;
+    display: grid;
+    place-items: center;
+    border-radius: 14px;
+    background: linear-gradient(135deg, var(--primary), #2563eb);
+    font-size: 24px;
+    box-shadow: 0 5px 25px rgba(139,92,246,.3);
+}
+
+.brand h2 {
+    font-size: 17px;
+    letter-spacing: .5px;
+}
+
+.brand p {
+    color: var(--muted);
+    font-size: 11px;
+    margin-top: 4px;
+}
+
+.header-tag {
+    color: #c4b5fd;
+    border: 1px solid rgba(196,181,253,.35);
+    border-radius: 30px;
+    padding: 9px 15px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+/* Main hero */
+
+main {
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+    padding: 55px 24px 45px;
+}
+
+.hero {
+    display: grid;
+    grid-template-columns: 1.1fr .9fr;
+    align-items: center;
+    gap: 55px;
+}
+
+.eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 9px 14px;
+    background: rgba(139,92,246,.13);
+    border: 1px solid rgba(167,139,250,.3);
+    border-radius: 30px;
+    color: #ddd6fe;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    margin-bottom: 23px;
+}
+
+.status-dot {
+    width: 8px;
+    height: 8px;
+    background: #34d399;
+    border-radius: 50%;
+    box-shadow: 0 0 12px #34d399;
+}
+
+h1 {
+    font-size: clamp(38px, 5.5vw, 68px);
+    line-height: 1.08;
+    letter-spacing: -2px;
+    margin-bottom: 22px;
+}
+
+.gradient-text {
+    display: block;
+    background: linear-gradient(90deg, #c4b5fd, #67e8f9);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+.intro {
+    color: var(--muted);
+    font-size: 17px;
+    line-height: 1.85;
+    max-width: 550px;
+    margin-bottom: 26px;
+}
+
+.features {
+    display: grid;
+    gap: 15px;
+    margin: 28px 0 32px;
+}
+
+.feature {
+    display: flex;
+    align-items: flex-start;
+    gap: 13px;
+    color: #e2e8f0;
+    line-height: 1.5;
+    font-size: 14px;
+}
+
+.feature-icon {
+    flex-shrink: 0;
+    width: 30px;
+    height: 30px;
+    display: grid;
+    place-items: center;
+    border-radius: 9px;
+    background: rgba(56,189,248,.12);
+    border: 1px solid rgba(56,189,248,.2);
+}
+
+.feature strong {
+    display: block;
+    color: white;
+    margin-bottom: 3px;
+}
+
+.feature span:last-child {
+    color: var(--muted);
+}
+
+/* Start button */
+
+.start-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 13px;
+    min-height: 58px;
+    padding: 0 32px;
+    border-radius: 15px;
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+    letter-spacing: .5px;
+    background: linear-gradient(100deg, #7c3aed, #2563eb);
+    box-shadow: 0 10px 35px rgba(79,70,229,.32);
+    transition: transform .25s, box-shadow .25s;
+}
+
+.start-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 40px rgba(79,70,229,.48);
+}
+
+.start-button:focus-visible,
+a:focus-visible,
+button:focus-visible {
+    outline: 3px solid #67e8f9;
+    outline-offset: 4px;
+}
+
+.button-note {
+    color: #94a3b8;
+    font-size: 12px;
+    margin-top: 14px;
+}
+
+/* Profile card */
+
+.profile-area {
+    display: flex;
+    justify-content: center;
+}
+
+.profile-card {
+    width: 100%;
+    max-width: 390px;
+    position: relative;
+    padding: 28px;
+    border: 1px solid var(--border);
+    border-radius: 28px;
+    background: linear-gradient(
+        145deg,
+        rgba(255,255,255,.10),
+        rgba(255,255,255,.025)
+    );
+    box-shadow: 0 25px 80px rgba(0,0,0,.28);
+    backdrop-filter: blur(20px);
+    text-align: center;
+}
+
+.card-label {
+    display: inline-block;
+    color: #c4b5fd;
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    margin-bottom: 24px;
+}
+
+.logo-frame {
+    width: 205px;
+    height: 205px;
+    margin: auto;
+    padding: 6px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #a78bfa, #38bdf8, #7c3aed);
+    box-shadow: 0 0 45px rgba(139,92,246,.22);
+}
+
+#pic {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: contain;
+    background: #fff;
+}
+
+.profile-card h2 {
+    font-size: 25px;
+    margin-top: 24px;
+    margin-bottom: 10px;
+}
+
+.profile-card > p {
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+.card-divider {
+    height: 1px;
+    background: var(--border);
+    margin: 23px 0;
+}
+
+.card-bottom {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    color: #cbd5e1;
+}
+
+.card-bottom span {
+    color: #67e8f9;
+}
+
+/* Bottom information */
+
+.info-strip {
+    margin-top: 65px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+}
+
+.info-box {
+    padding: 20px;
+    border: 1px solid var(--border);
+    border-radius: 17px;
+    background: rgba(255,255,255,.035);
+}
+
+.info-box h3 {
+    font-size: 14px;
+    margin-bottom: 9px;
+}
+
+.info-box p {
+    color: var(--muted);
+    font-size: 12px;
+    line-height: 1.7;
+}
+
+/* Footer */
+
+footer {
+    padding: 28px 20px;
+    text-align: center;
+    background: rgba(3,7,18,.55);
+    border-top: 1px solid var(--border);
+}
+
+.footer-brand {
+    font-size: 13px;
+    color: #e2e8f0;
+    line-height: 1.9;
+}
+
+.footer-brand strong {
+    color: #c4b5fd;
+}
+
+.footer-links {
+    margin-top: 13px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.footer-links button {
+    border: none;
+    background: none;
+    color: #94a3b8;
+    font-size: 12px;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.footer-links button:hover {
+    color: white;
+}
+
+.copyright {
+    color: #64748b;
+    font-size: 11px;
+    margin-top: 18px;
+}
+
+/* Terms and privacy popup */
+
+.modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    padding: 20px;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0,0,0,.78);
+    backdrop-filter: blur(8px);
+}
+
+.modal.open {
+    display: flex;
+}
+
+.modal-content {
+    width: 100%;
+    max-width: 650px;
+    max-height: 85vh;
+    overflow-y: auto;
+    padding: 28px;
+    border: 1px solid var(--border);
+    border-radius: 22px;
+    background: #10172d;
+    box-shadow: 0 25px 80px rgba(0,0,0,.5);
+    text-align: left;
+}
+
+.modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    margin-bottom: 22px;
+}
+
+.modal-header h2 {
+    font-size: 23px;
+}
+
+.close-button {
+    width: 38px;
+    height: 38px;
+    flex-shrink: 0;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: rgba(255,255,255,.07);
+    color: white;
+    font-size: 23px;
+    cursor: pointer;
+}
+
+.modal-content h3 {
+    color: #c4b5fd;
+    font-size: 15px;
+    margin: 22px 0 8px;
+}
+
+.modal-content p,
+.modal-content li {
+    color: #cbd5e1;
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+.modal-content ul {
+    padding-left: 22px;
+}
+
+.modal-content a {
+    color: #67e8f9;
+}
+
+.modal-updated {
+    margin-top: 22px;
+    font-size: 11px !important;
+    color: #64748b !important;
+}
+
+@media (max-width: 850px) {
+    .hero {
+        grid-template-columns: 1fr;
+        gap: 45px;
+    }
+
+    .hero-copy {
+        text-align: center;
+    }
+
+    .intro {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .features {
+        max-width: 480px;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: left;
+    }
+
+    .profile-card {
+        max-width: 420px;
+    }
+
+    .info-strip {
+        margin-top: 45px;
+    }
+}
+
+@media (max-width: 550px) {
+    header {
+        padding: 15px 18px;
+    }
+
+    .brand h2 {
+        font-size: 14px;
+    }
+
+    .brand p {
+        font-size: 10px;
+    }
+
+    .brand-icon {
+        width: 40px;
+        height: 40px;
+    }
+
+    .header-tag {
+        font-size: 10px;
+        padding: 8px 10px;
+    }
+
+    main {
+        padding: 43px 18px 35px;
+    }
+
+    h1 {
+        font-size: 43px;
+        letter-spacing: -1.5px;
+    }
+
+    .intro {
+        font-size: 15px;
+    }
+
+    .profile-card {
+        padding: 24px 18px;
+    }
+
+    .logo-frame {
+        width: 175px;
+        height: 175px;
+    }
+
+    .info-strip {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .info-box {
+        padding: 17px;
+    }
+
+    .modal-content {
+        padding: 22px 18px;
+    }
+
+    .modal-header h2 {
+        font-size: 19px;
+    }
+
+    .start-button {
+        width: 100%;
+        padding: 0 20px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        scroll-behavior: auto !important;
+        animation: none !important;
+        transition: none !important;
+    }
+}
 </style>
-
 </head>
 
 <body>
 
-<h1 style="color: white;">
-WELCOME TO TRISH MATRIC GUIDE
-</h1>
+<div class="background"></div>
+<div class="glow glow-one"></div>
+<div class="glow glow-two"></div>
 
-<div id="profile">
-<img src="trishlogo.png" alt="TRISH LOGO" id="pic">
+<header>
+    <div class="brand">
+        <div class="brand-icon" aria-hidden="true">🎓</div>
+        <div>
+            <h2>TRISH MATRIC GUIDE</h2>
+            <p>Learn today. Lead tomorrow.</p>
+        </div>
+    </div>
+
+    <div class="header-tag">MATRIC SUCCESS</div>
+</header>
+
+<main>
+
+    <section class="hero">
+
+        <div class="hero-copy">
+
+            <div class="eyebrow">
+                <span class="status-dot"></span>
+                YOUR JOURNEY STARTS HERE
+            </div>
+
+            <h1>
+                Your future.
+                <span class="gradient-text">Your success.</span>
+                Your journey.
+            </h1>
+
+            <p class="intro">
+                Matric can feel overwhelming when you don't know where
+                to begin. TRISH MATRIC GUIDE is here to help you find
+                direction, organise your next steps and approach your
+                academic journey with greater confidence.
+            </p>
+
+            <div class="features">
+
+                <div class="feature">
+                    <div class="feature-icon">📚</div>
+                    <div>
+                        <strong>Find Your Direction</strong>
+                        <span>Start organising your matric journey one step at a time.</span>
+                    </div>
+                </div>
+
+                <div class="feature">
+                    <div class="feature-icon">🎯</div>
+                    <div>
+                        <strong>Plan With Purpose</strong>
+                        <span>Make informed decisions about your studies and future.</span>
+                    </div>
+                </div>
+
+                <div class="feature">
+                    <div class="feature-icon">🚀</div>
+                    <div>
+                        <strong>Take Your First Step</strong>
+                        <span>Explore the guide and move towards your goals.</span>
+                    </div>
+                </div>
+
+            </div>
+
+            <a class="start-button" href="2ndpage.html">
+                START YOUR JOURNEY
+                <span aria-hidden="true">→</span>
+            </a>
+
+            <p class="button-note">
+                Your next chapter begins with one step.
+            </p>
+
+        </div>
+
+        <div class="profile-area">
+            <div class="profile-card">
+
+                <span class="card-label">WELCOME TO YOUR GUIDE</span>
+
+                <div class="logo-frame">
+                    <img
+                        src="trishlogo.png"
+                        alt="Trish Matric Guide logo"
+                        id="pic"
+                    >
+                </div>
+
+                <h2>Welcome, Matric Student!</h2>
+
+                <p>
+                    You don't have to figure everything out at once.
+                    Begin here, explore your options and take your
+                    next step with purpose.
+                </p>
+
+                <div class="card-divider"></div>
+
+                <div class="card-bottom">
+                    <span>✦</span>
+                    Designed to guide your journey
+                    <span>✦</span>
+                </div>
+
+            </div>
+        </div>
+
+    </section>
+
+    <section class="info-strip" aria-label="About the guide">
+
+        <div class="info-box">
+            <h3>📖 Learn</h3>
+            <p>
+                Explore the information available in the guide
+                to help you understand your next steps.
+            </p>
+        </div>
+
+        <div class="info-box">
+            <h3>🧭 Discover</h3>
+            <p>
+                Consider your interests, opportunities and
+                possible paths beyond matric.
+            </p>
+        </div>
+
+        <div class="info-box">
+            <h3>🌟 Move Forward</h3>
+            <p>
+                Build a plan that suits your goals and
+                take your next step with confidence.
+            </p>
+        </div>
+
+    </section>
+
+</main>
+
+<footer>
+
+    <p class="footer-brand">
+        A digital experience by <strong>Malangana Web Design</strong><br>
+        Produced by <strong>Lesley Ntshuxeko Malangana</strong>
+    </p>
+
+    <div class="footer-links">
+        <button type="button" onclick="openModal('terms')">
+            Terms &amp; Conditions
+        </button>
+
+        <button type="button" onclick="openModal('privacy')">
+            Privacy Notice
+        </button>
+
+        <button type="button" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+            Back to Top ↑
+        </button>
+    </div>
+
+    <p class="copyright">
+        &copy; <span id="year"></span> Malangana Web Design.
+        All rights reserved.
+    </p>
+
+</footer>
+
+<!-- TERMS AND CONDITIONS -->
+
+<div
+    class="modal"
+    id="terms"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="terms-title"
+    aria-hidden="true"
+>
+    <div class="modal-content">
+
+        <div class="modal-header">
+            <h2 id="terms-title">Terms &amp; Conditions</h2>
+
+            <button
+                class="close-button"
+                type="button"
+                onclick="closeModal('terms')"
+                aria-label="Close terms and conditions"
+            >&times;</button>
+        </div>
+
+        <p>
+            Welcome to TRISH MATRIC GUIDE. By accessing or using this
+            website, you agree to use it responsibly and in accordance
+            with these terms.
+        </p>
+
+        <h3>1. Purpose of the Website</h3>
+        <p>
+            TRISH MATRIC GUIDE is intended to provide general educational
+            guidance and information to matric students. The information
+            available on the website is intended to support your
+            decision-making, not replace official advice.
+        </p>
+
+        <h3>2. Accuracy of Information</h3>
+        <p>
+            We aim to provide helpful and accurate information. However,
+            admission requirements, application dates, fees, course
+            availability and other requirements may change. Always verify
+            important information with the relevant school, college,
+            university or official organisation.
+        </p>
+
+        <h3>3. No Guarantee of Results</h3>
+        <p>
+            Using this guide does not guarantee examination results,
+            university admission, employment or acceptance into any
+            programme. Your results depend on various factors, including
+            the requirements of the relevant institutions.
+        </p>
+
+        <h3>4. Responsible Use</h3>
+        <p>
+            You agree not to misuse the website, attempt unauthorised
+            access, interfere with its operation or use its content
+            for unlawful purposes.
+        </p>
+
+        <h3>5. Intellectual Property</h3>
+        <p>
+            Website design, branding, original content and other
+            materials may be protected by applicable intellectual
+            property laws. You may not reproduce or commercially
+            distribute protected materials without permission from
+            the relevant rights holder.
+        </p>
+
+        <h3>6. Third-Party Websites</h3>
+        <p>
+            The guide may refer users to external websites. We do not
+            control those websites and are not responsible for their
+            content, availability or privacy practices.
+        </p>
+
+        <h3>7. Website Availability</h3>
+        <p>
+            We may update, change, suspend or discontinue parts of the
+            website when reasonably necessary. We cannot guarantee
+            uninterrupted access or that the website will always be
+            error-free.
+        </p>
+
+        <h3>8. Changes to These Terms</h3>
+        <p>
+            These terms may be updated when necessary. The current
+            version should be reviewed periodically.
+        </p>
+
+        <h3>9. Contact and Responsibility</h3>
+        <p>
+            TRISH MATRIC GUIDE is presented under the Malangana Web
+            Design branding. For questions about the website, contact
+            its administrator using the contact details officially
+            provided by the website operator.
+        </p>
+
+        <p class="modal-updated">
+            Please review these terms before publishing. They are a
+            general template and should be adapted to the actual
+            services and applicable laws.
+        </p>
+
+    </div>
 </div>
 
-<br>
-<big><b>
-<ol style="color: white;">
-<li>ARE YOU IN MATRIC??</li>
-<br>
-<li>YOU DON'T KNOW WHERE TO START??</li>
-<br>
-<li>A PLAN IS WHAT YOU DON'T HAVE!</li>
-<br>
-<li>SIT BACK AND TRISH WILL CLEAR THE FUTURE FOR YOU</li>
-</ol>
-</b>
-</big>
-<br>
-<br>
-<br>
-<button id="button" onclick="window.location.href='2ndpage.html'">
-START
-</button>
+<!-- PRIVACY NOTICE -->
+
+<div
+    class="modal"
+    id="privacy"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="privacy-title"
+    aria-hidden="true"
+>
+    <div class="modal-content">
+
+        <div class="modal-header">
+            <h2 id="privacy-title">Privacy Notice</h2>
+
+            <button
+                class="close-button"
+                type="button"
+                onclick="closeModal('privacy')"
+                aria-label="Close privacy notice"
+            >&times;</button>
+        </div>
+
+        <p>
+            Your privacy matters. This notice explains general privacy
+            principles for TRISH MATRIC GUIDE. The actual practices
+            must match the information the website collects and how
+            that information is used.
+        </p>
+
+        <h3>1. Information You Provide</h3>
+        <p>
+            If the website offers forms, accounts or other interactive
+            features, it may collect information that you choose to
+            submit. Only information necessary for the stated purpose
+            should be collected.
+        </p>
+
+        <h3>2. How Information Is Used</h3>
+        <p>
+            Information may be used to provide requested features,
+            respond to enquiries, maintain website security and improve
+            the service, where applicable and lawfully permitted.
+        </p>
+
+        <h3>3. Sharing Information</h3>
+        <p>
+            Personal information should not be sold or shared
+            unnecessarily. Information may be disclosed where required
+            by law or to service providers where appropriate safeguards
+            and legal requirements apply.
+        </p>
+
+        <h3>4. Security and Retention</h3>
+        <p>
+            Reasonable safeguards should be used to protect personal
+            information. Information should be kept only for as long
+            as necessary for its intended purpose or as required by law.
+            No online system can guarantee absolute security.
+        </p>
+
+        <h3>5. Children and Student Information</h3>
+        <p>
+            Students should avoid sharing passwords, identity numbers,
+            home addresses or other sensitive personal information
+            unnecessarily. Where information about children is
+            collected, appropriate consent and legal safeguards
+            must be considered.
+        </p>
+
+        <h3>6. Your Privacy Rights</h3>
+        <p>
+            Depending on applicable law, you may have rights to request
+            access to, correction of or deletion of your personal
+            information.
+        </p>
+
+        <h3>7. Cookies and External Services</h3>
+        <p>
+            If the website uses cookies, analytics or third-party
+            services, the actual services and their purposes should
+            be disclosed here.
+        </p>
+
+        <h3>8. Questions About Privacy</h3>
+        <p>
+            Contact the website administrator through the official
+            contact details published by the website operator to
+            raise a privacy concern.
+        </p>
+
+        <p class="modal-updated">
+            Important: This is a general template, not confirmation
+            of the website's actual data practices. Update it to match
+            your site before publishing and check applicable privacy
+            laws, including South Africa's POPIA where relevant.
+        </p>
+
+    </div>
+</div>
+
+<script>
+document.getElementById("year").textContent =
+    new Date().getFullYear();
+
+let previousFocus = null;
+
+function openModal(id) {
+    const modal = document.getElementById(id);
+
+    if (!modal) return;
+
+    previousFocus = document.activeElement;
+
+    modal.classList.add("open");
+    modal.setAttribute("aria-hidden", "false");
+    document.body.style.overflow = "hidden";
+
+    const closeButton = modal.querySelector(".close-button");
+
+    if (closeButton) closeButton.focus();
+}
+
+function closeModal(id) {
+    const modal = document.getElementById(id);
+
+    if (!modal) return;
+
+    modal.classList.remove("open");
+    modal.setAttribute("aria-hidden", "true");
+    document.body.style.overflow = "";
+
+    if (previousFocus) previousFocus.focus();
+}
+
+document.querySelectorAll(".modal").forEach(function(modal) {
+    modal.addEventListener("click", function(event) {
+        if (event.target === modal) {
+            closeModal(modal.id);
+        }
+    });
+});
+
+document.addEventListener("keydown", function(event) {
+    if (event.key === "Escape") {
+        const openModalElement =
+            document.querySelector(".modal.open");
+
+        if (openModalElement) {
+            closeModal(openModalElement.id);
+        }
+    }
+});
+</script>
 
 </body>
 </html>
+```
